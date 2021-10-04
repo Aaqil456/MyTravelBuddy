@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.mytravelbuddy.ui.dashboard.DashboardFragment;
+
 import com.example.mytravelbuddy.ui.home.HomeFragment;
 import com.example.mytravelbuddy.ui.notifications.NotificationsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,11 +20,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigation);
 
+
+
         //loading the default fragment
         loadFragment(new HomeFragment());
 
         //getting bottom navigation view and attaching the listener
-        BottomNavigationView navigation = findViewById(R.id.navigation);
+        BottomNavigationView navigation = findViewById(R.id.bottomNavigationView);
+        navigation.setBackground(null);
         navigation.setOnNavigationItemSelectedListener(this);
     }
 
@@ -36,10 +39,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         switch (item.getItemId()) {
             case R.id.navigation_home:
                 fragment = new HomeFragment();
-                break;
-
-            case R.id.navigation_dashboard:
-                fragment = new DashboardFragment();
                 break;
 
             case R.id.navigation_notifications:
