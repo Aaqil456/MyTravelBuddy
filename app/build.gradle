@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.mytravelbuddy"
-        minSdkVersion 23
+        minSdkVersion 28
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -47,4 +47,7 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.huawei.hms:awareness:1.0.7.303'
+    implementation 'com.huawei.hms:location:5.0.4.300'
+    implementation 'com.huawei.hms:maps:5.0.5.301'
 }
