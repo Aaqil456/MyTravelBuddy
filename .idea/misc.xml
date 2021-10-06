@@ -5,14 +5,17 @@
       <map>
         <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.3157894736842105" />
         <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/layout/activity_main.xml" value="0.3875" />
+        <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/layout/fragment_MapSearch.xml" value="0.3875" />
         <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/layout/fragment_dashboard.xml" value="0.3734375" />
         <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/layout/fragment_home.xml" value="0.34108527131782945" />
+        <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/layout/fragment_mapsearch.xml" value="0.20380434782608695" />
         <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/layout/fragment_notifications.xml" value="0.34108527131782945" />
+        <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/layout/map_view.xml" value="0.3875" />
         <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3875" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

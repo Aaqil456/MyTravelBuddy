@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.mytravelbuddy.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.example.mytravelbuddy.ui.map.Map_search"
+        android:label="@string/title_map"
+        tools:layout="@layout/fragment_mapsearch" />
 </navigation>

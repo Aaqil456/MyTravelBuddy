@@ -1,18 +1,21 @@
-package com.example.mytravelbuddy;
+package com.example.mytravelbuddy.ui;
+
+import static android.content.ContentValues.TAG;
 
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mytravelbuddy.R;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.huawei.hms.maps.HuaweiMap;
 import com.huawei.hms.maps.MapView;
-import com.huawei.hms.maps.OnMapReadyCallback;
 
-import static android.content.ContentValues.TAG;
-
-public class Map_Activity extends AppCompatActivity implements OnMapReadyCallback {
+public class Map_Activity extends AppCompatActivity implements OnMapReadyCallback, com.huawei.hms.maps.OnMapReadyCallback {
     private MapView mMapView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,7 +33,12 @@ public class Map_Activity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     @Override
-    public void onMapReady(HuaweiMap huaweiMap) {
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        Log.d(TAG, "onMapReady: ");
+
+    }
+    @Override
+    public void onMapReady(@NonNull HuaweiMap huaweiMap) {
         Log.d(TAG, "onMapReady: ");
         HuaweiMap hMap = huaweiMap;
     }
@@ -90,4 +98,7 @@ public class Map_Activity extends AppCompatActivity implements OnMapReadyCallbac
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
+
+
 }

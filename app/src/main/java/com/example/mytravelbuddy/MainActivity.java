@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 
 import com.example.mytravelbuddy.ui.home.HomeFragment;
-import com.example.mytravelbuddy.ui.notifications.NotificationsFragment;
+import com.example.mytravelbuddy.ui.map.Map_search;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragment = new HomeFragment();
                 break;
 
-            case R.id.navigation_notifications:
-                fragment = new NotificationsFragment();
+            case R.id.navigation_map:
+                fragment = new Map_search();
                 break;
 
 

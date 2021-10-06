@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.mytravelbuddy.Map_Activity;
+import com.example.mytravelbuddy.ui.Map_Activity;
 import com.example.mytravelbuddy.R;
 import com.example.mytravelbuddy.databinding.FragmentHomeBinding;
 
@@ -24,8 +24,6 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        TextView tv=root.findViewById(R.id.text_home);
-        tv.setText("Home Fragments");
         Button btnMap=root.findViewById(R.id.buttonMap);
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
