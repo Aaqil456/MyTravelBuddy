@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.mytravelbuddy.R;
 import com.example.mytravelbuddy.databinding.FragmentHomeBinding;
+//import com.example.mytravelbuddy.ui.MLTtsConfig;
 import com.google.android.material.textfield.TextInputEditText;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
@@ -34,6 +35,7 @@ public class HomeFragment extends Fragment {
     private TextView outputtext;
     private TextInputEditText inputtext1;
     private Button translate,btn_language;
+    ImageButton btn_speech;
     private String language;
     int checkedItem;
     String[]listItems = {"Malay", "Traditional Chinese", "Japanese", "Korean", "Tamil"};
@@ -44,7 +46,6 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
 
         //Language Kit
         btn_language=root.findViewById(R.id.btn_language);
@@ -77,6 +78,14 @@ public class HomeFragment extends Fragment {
                 dialog.show();
             }
         });
+        //Speech Output
+        btn_speech=root.findViewById(R.id.btn_speech);
+        btn_speech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                new MLTtsConfig();
+            }
+        });
 
 
         //TranslationMethod
@@ -92,6 +101,7 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
+
 
     private void translateFunction(final String inputtext) {
         MLApplication.getInstance().setApiKey(getResources().getString(R.string.api_key));
