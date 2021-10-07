@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -57,9 +56,9 @@ public class HomeFragment extends Fragment {
         MLRemoteTranslateSetting setting = new MLRemoteTranslateSetting
                 .Factory()
                 // Set the source language code. The BCP-47 standard is used for Traditional Chinese, and the ISO 639-1 standard is used for other languages. This parameter is optional. If this parameter is not set, the system automatically detects the language.
-                .setSourceLangCode("zh")
+                .setSourceLangCode("en")
                 // Set the target language code. The BCP-47 standard is used for Traditional Chinese, and the ISO 639-1 standard is used for other languages.
-                .setTargetLangCode("en")
+                .setTargetLangCode("ms")
                 .create();
         MLRemoteTranslator mlRemoteTranslator = MLTranslatorFactory.getInstance().getRemoteTranslator(setting);
         // sourceText: text to be translated, with up to 5000 characters.
