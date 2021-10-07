@@ -6,26 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <Button
-        android:id="@+id/buttonMap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Map"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="612dp" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/translation"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonMap"
+        android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357">
+        app:layout_constraintTop_toBottomOf="@+id/WeatherContainer">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -35,17 +23,25 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-            app:layout_constraintVertical_bias="0.14" />
+            app:layout_constraintTop_toBottomOf="@+id/inputtext"
+            app:layout_constraintVertical_bias="0.14" >
+
+            <TextView
+                android:id="@+id/outputtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </androidx.cardview.widget.CardView>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
+            android:id="@+id/inputtext"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputtext1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -59,11 +55,11 @@
             android:layout_width="86dp"
             android:layout_height="45dp"
             android:text="Enter"
-            app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+            app:layout_constraintBottom_toBottomOf="@+id/inputtext"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.538"
-            app:layout_constraintStart_toEndOf="@+id/textInputLayout"
-            app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+            app:layout_constraintStart_toEndOf="@+id/inputtext"
+            app:layout_constraintTop_toTopOf="@+id/inputtext"
             app:layout_constraintVertical_bias="1.0"
             tools:ignore="TouchTargetSizeCheck" />
 
@@ -74,12 +70,9 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:background="@color/purple_200"
-        app:layout_constraintBottom_toTopOf="@+id/translation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView"

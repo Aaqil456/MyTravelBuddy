@@ -11,8 +11,9 @@ import android.view.MenuItem;
 import com.example.mytravelbuddy.ui.home.HomeFragment;
 import com.example.mytravelbuddy.ui.map.Map_search;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
 
     @Override
@@ -28,28 +29,28 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         //getting bottom navigation view and attaching the listener
         BottomNavigationView navigation = findViewById(R.id.bottomNavigationView);
         navigation.setBackground(null);
-        navigation.setOnNavigationItemSelectedListener(this);
+        navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment = null;
+
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        fragment = new HomeFragment();
+                        break;
+
+                    case R.id.navigation_map:
+                        fragment = new Map_search();
+                        break;
+
+                }
+
+                return loadFragment(fragment);
+            }
+        });
     }
 
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Fragment fragment = null;
-
-        switch (item.getItemId()) {
-            case R.id.navigation_home:
-                fragment = new HomeFragment();
-                break;
-
-            case R.id.navigation_map:
-                fragment = new Map_search();
-                break;
-
-
-        }
-
-        return loadFragment(fragment);
-    }
 
     private boolean loadFragment(Fragment fragment) {
         //switching fragment
