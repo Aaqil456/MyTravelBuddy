@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 
+import com.example.mytravelbuddy.ui.Map_Activity;
 import com.example.mytravelbuddy.ui.home.HomeFragment;
 import com.example.mytravelbuddy.ui.map.Map_search;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
