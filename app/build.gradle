@@ -52,9 +52,10 @@ dependencies {
     implementation 'com.huawei.hms:location:5.0.4.300'
     implementation 'com.huawei.hms:maps:5.0.5.301'
     implementation 'com.huawei.hms:ml-computer-translate:3.0.0.300'
-    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.2.0.300'
     implementation 'com.huawei.hms:ml-computer-voice-tts:2.2.0.300'
     implementation 'androidx.navigation:navigation-fragment:2.3.1'
     implementation 'androidx.navigation:navigation-ui:2.3.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:3.0.0.301'
+    implementation 'com.huawei.hms:ml-computer-voice-asr:3.1.0.300'
 }
