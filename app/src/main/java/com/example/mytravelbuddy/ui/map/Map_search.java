@@ -25,6 +25,7 @@ public class Map_search extends Fragment {
         TextView tv=root.findViewById(R.id.text_notifications);
         tv.setText("Map Fragments");
 
+        startActivity(new Intent(getActivity(), Map_Activity.class));
         return root;
     }
 

@@ -50,7 +50,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.huawei.hms:awareness:1.0.7.303'
     implementation 'com.huawei.hms:location:5.0.4.300'
-    implementation 'com.huawei.hms:maps:5.0.5.301'
     implementation 'com.huawei.hms:ml-computer-translate:3.0.0.300'
     implementation 'com.huawei.hms:ml-computer-voice-tts:2.2.0.300'
     implementation 'androidx.navigation:navigation-fragment:2.3.1'
@@ -58,4 +57,5 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:3.0.0.301'
     implementation 'com.huawei.hms:ml-computer-voice-asr:3.1.0.300'
+    implementation 'com.huawei.hms:maps:6.0.1.304'
 }
