@@ -45,7 +45,17 @@
     <queries>
         <intent>
             <action android:name="com.huawei.hms.core.aidlservice" />
+
         </intent>
     </queries>
+
+    //setting up text to speech
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+
+        </intent>
+    </queries>
+
 </manifest>
 

@@ -1,6 +1,5 @@
 package com.example.mytravelbuddy.ui.map;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.mytravelbuddy.R;
 import com.example.mytravelbuddy.databinding.FragmentMapsearchBinding;
-import com.example.mytravelbuddy.ui.Map_Activity;
 
 public class Map_search extends Fragment {
 

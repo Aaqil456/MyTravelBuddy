@@ -3,6 +3,8 @@ package com.example.mytravelbuddy.ui.home;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.mytravelbuddy.MainActivity;
 import com.example.mytravelbuddy.R;
 import com.example.mytravelbuddy.databinding.FragmentHomeBinding;
 //import com.example.mytravelbuddy.ui.MLTtsConfig;
@@ -28,6 +31,8 @@ import com.huawei.hms.mlsdk.translate.MLTranslatorFactory;
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslateSetting;
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslator;
 
+import java.util.Locale;
+
 public class HomeFragment extends Fragment {
 
 
@@ -38,8 +43,10 @@ public class HomeFragment extends Fragment {
     ImageButton btn_speech;
     private String language;
     int checkedItem;
-    String[]listItems = {"Malay", "Traditional Chinese", "Japanese", "Korean", "Tamil"};
-    String[]languageselected = {"ms", "zh", "ja", "ko", "ta"};
+    public String texttoSpeech;
+    public String texttoSpeechLanguage;
+    String[]listItems = {"Malay", "Traditional Chinese", "Japanese", "Korean", "Tamil","German","Spanish","Indonesian","Russian","Thai","Vietnamese"};
+    String[]languageselected = {"ms", "zh", "ja", "ko", "ta","de","es","id","ru","th","vi"};
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -60,9 +67,10 @@ public class HomeFragment extends Fragment {
                 builder.setSingleChoiceItems(listItems, checkedItem, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(root.getContext(), "Position: " + which + " Value: " + listItems[which], Toast.LENGTH_LONG).show();
+//                        Toast.makeText(root.getContext(), "Position: " + which + " Value: " + listItems[which], Toast.LENGTH_LONG).show();
                         language=languageselected[which];
                         btn_language.setText(listItems[which]);
+                        texttoSpeechLanguage=languageselected[which];
                         checkedItem = which;
                     }
                 });
@@ -78,12 +86,36 @@ public class HomeFragment extends Fragment {
                 dialog.show();
             }
         });
-        //Speech Output
+
+
+
+        //TextToSpeach
+        TTS.init (getContext ());
         btn_speech=root.findViewById(R.id.btn_speech);
         btn_speech.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-//                new MLTtsConfig();
+            public void onClick(View v) {//
+
+                // Set TextToSpeech reading end detection event listener
+                TTS.setOnUtteranceProgressListener (new UtteranceProgressListener () {
+                    @Override
+                    public void onDone (String utteranceId) {
+
+                    }
+                    @Override
+                    public void onError (String utteranceId) {
+                        Toast.makeText(getContext(), "There's an Error", Toast.LENGTH_SHORT).show();
+                    }
+                    @Override
+                    public void onStart (String utteranceId) {}
+                });
+
+                TTS.speak (texttoSpeech, this.hashCode () + "",texttoSpeechLanguage);
+
+
+
+
+
             }
         });
 
@@ -99,10 +131,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+
         return root;
     }
 
 
+    //End Speech Output
     private void translateFunction(final String inputtext) {
         MLApplication.getInstance().setApiKey(getResources().getString(R.string.api_key));
 
@@ -122,6 +157,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onSuccess(String text) {
                 outputtext.setText(text);
+                texttoSpeech=text;
+
                 Log.d(inputtext+"translated: ",text);
                 // Processing logic for recognition success.
             }
@@ -144,6 +181,8 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+
 
     @Override
     public void onDestroyView() {
