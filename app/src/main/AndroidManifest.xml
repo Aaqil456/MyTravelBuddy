@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mytravelbuddy">
+    <!-- Audio kit -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!-- Allow the app to access Internet.-->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!--Allow the app to query the network status.-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- Allow the app to read common data. -->
@@ -13,6 +16,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
 
     <uses-permission
         android:name="android.permission.ACCESS_MOCK_LOCATION"

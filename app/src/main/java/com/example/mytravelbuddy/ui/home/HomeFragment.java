@@ -1,18 +1,23 @@
 package com.example.mytravelbuddy.ui.home;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.mytravelbuddy.R;
 import com.example.mytravelbuddy.databinding.FragmentHomeBinding;
+//import com.example.mytravelbuddy.ui.MLTtsConfig;
 import com.google.android.material.textfield.TextInputEditText;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
@@ -29,11 +34,59 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private TextView outputtext;
     private TextInputEditText inputtext1;
-    private Button translate;
+    private Button translate,btn_language;
+    ImageButton btn_speech;
+    private String language;
+    int checkedItem;
+    String[]listItems = {"Malay", "Traditional Chinese", "Japanese", "Korean", "Tamil"};
+    String[]languageselected = {"ms", "zh", "ja", "ko", "ta"};
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        //Language Kit
+        btn_language=root.findViewById(R.id.btn_language);
+        btn_language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(root.getContext());
+                builder.setTitle("Choose item");
+
+                //this will checked the item when user open the dialog
+                builder.setSingleChoiceItems(listItems, checkedItem, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(root.getContext(), "Position: " + which + " Value: " + listItems[which], Toast.LENGTH_LONG).show();
+                        language=languageselected[which];
+                        btn_language.setText(listItems[which]);
+                        checkedItem = which;
+                    }
+                });
+
+                builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+        //Speech Output
+        btn_speech=root.findViewById(R.id.btn_speech);
+        btn_speech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                new MLTtsConfig();
+            }
+        });
+
 
         //TranslationMethod
         inputtext1=root.findViewById(R.id.inputtext1);
@@ -49,6 +102,7 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
+
     private void translateFunction(final String inputtext) {
         MLApplication.getInstance().setApiKey(getResources().getString(R.string.api_key));
 
@@ -58,7 +112,8 @@ public class HomeFragment extends Fragment {
                 // Set the source language code. The BCP-47 standard is used for Traditional Chinese, and the ISO 639-1 standard is used for other languages. This parameter is optional. If this parameter is not set, the system automatically detects the language.
                 .setSourceLangCode("en")
                 // Set the target language code. The BCP-47 standard is used for Traditional Chinese, and the ISO 639-1 standard is used for other languages.
-                .setTargetLangCode("ms")
+//                .setTargetLangCode(languageselected.toString())
+                .setTargetLangCode(language)
                 .create();
         MLRemoteTranslator mlRemoteTranslator = MLTranslatorFactory.getInstance().getRemoteTranslator(setting);
         // sourceText: text to be translated, with up to 5000 characters.
