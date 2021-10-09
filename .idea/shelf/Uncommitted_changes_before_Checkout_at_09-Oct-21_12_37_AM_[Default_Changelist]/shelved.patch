@@ -1,0 +1,56 @@
+Index: app/src/main/java/com/example/mytravelbuddy/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.mytravelbuddy;\r\n\r\nimport androidx.activity.result.ActivityResult;\r\nimport androidx.activity.result.ActivityResultCallback;\r\nimport androidx.activity.result.ActivityResultLauncher;\r\nimport androidx.activity.result.contract.ActivityResultContracts;\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.core.app.ActivityCompat;\r\nimport androidx.core.content.ContextCompat;\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport android.Manifest;\r\nimport android.app.Activity;\r\nimport android.content.Context;\r\nimport android.content.Intent;\r\nimport android.content.pm.PackageManager;\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\nimport android.view.MenuItem;\r\nimport android.view.View;\r\nimport android.widget.ImageButton;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\n\r\nimport com.example.mytravelbuddy.ui.Map_Activity;\r\nimport com.example.mytravelbuddy.ui.home.HomeFragment;\r\nimport com.example.mytravelbuddy.ui.map.Map_search;\r\nimport com.google.android.material.bottomnavigation.BottomNavigationView;\r\nimport com.google.android.material.floatingactionbutton.FloatingActionButton;\r\nimport com.google.android.material.navigation.NavigationBarView;\r\nimport com.huawei.hms.mlplugin.asr.MLAsrCaptureActivity;\r\nimport com.huawei.hms.mlplugin.asr.MLAsrCaptureConstants;\r\nimport com.huawei.hms.mlsdk.asr.MLAsrConstants;\r\nimport com.huawei.hms.mlsdk.asr.MLAsrRecognizer;\r\nimport com.huawei.hms.mlsdk.common.MLApplication;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    FloatingActionButton mic;\r\n    TextView textView3;\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_bottom_navigation);\r\n        MLApplication.getInstance().setApiKey(getResources().getString(R.string.api_key));\r\n\r\n        //loading the default fragment\r\n        loadFragment(new HomeFragment());\r\n\r\n        //getting bottom navigation view and attaching the listener\r\n        BottomNavigationView navigation = findViewById(R.id.bottomNavigationView);\r\n        navigation.setBackground(null);\r\n        navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {\r\n            @Override\r\n            public boolean onNavigationItemSelected(@NonNull MenuItem item) {\r\n                Fragment fragment = null;\r\n\r\n                switch (item.getItemId()) {\r\n                    case R.id.navigation_home:\r\n                        fragment = new HomeFragment();\r\n                        break;\r\n\r\n                    case R.id.navigation_map:\r\n                        fragment = new Map_search();\r\n                        break;\r\n\r\n                }\r\n\r\n                return loadFragment(fragment);\r\n            }\r\n        });\r\n\r\n\r\n        //for mic\r\n        mic=findViewById(R.id.mic);\r\n        mic.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                // context: app context.\r\n                MLAsrRecognizer mSpeechRecognizer = MLAsrRecognizer.createAsrRecognizer(MainActivity.this);\r\n                asrPickUpUi();\r\n            }\r\n        });\r\n\r\n\r\n    }\r\n    private void asrPickUpUi(){\r\n        // Use Intent for recognition settings.\r\n        Intent intent = new Intent(this, MLAsrCaptureActivity.class)\r\n                // Set the language that can be recognized to English. If this parameter is not set, English is recognized by default. Example: \"zh-CN\": Chinese; \"en-US\": English; \"fr-FR\": French; \"es-ES\": Spanish; \"de-DE\": German; \"it-IT\": Italian; \"ar\": Arabic.\r\n                .putExtra(MLAsrCaptureConstants.LANGUAGE, \"en-US\")\r\n// Set whether to display the recognition result on the speech pickup UI. MLAsrCaptureConstants.FEATURE_ALLINONE: no; MLAsrCaptureConstants.FEATURE_WORDFLUX: yes.\r\n                .putExtra(MLAsrCaptureConstants.FEATURE, MLAsrCaptureConstants.FEATURE_WORDFLUX)\r\n                // Set the application scenario. MLAsrConstants.SCENES_SHOPPING indicates shopping, which is supported only for Chinese. Under this scenario, recognition for the name of Huawei products has been optimized.\r\n                .putExtra(MLAsrConstants.SCENES, MLAsrConstants.SCENES_SHOPPING);\r\n                 startActivityIfNeeded(intent,100);\r\n    }\r\n\r\n    @Override\r\n    protected void onActivityResult(int requestCode, int resultCode, Intent data) {\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n        String text = \"Hello\";\r\n        // REQUEST_CODE_ASR: request code between the current activity and speech pickup UI activity defined in step 3.\r\n        if (requestCode == 100) {\r\n            switch (resultCode) {\r\n        // MLAsrCaptureConstants.ASR_SUCCESS: Recognition is successful.\r\n                case MLAsrCaptureConstants.ASR_SUCCESS:\r\n                    if (data != null) {\r\n                        Bundle bundle = data.getExtras();\r\n        // Obtain the text information recognized from speech.\r\n                        if (bundle.containsKey(MLAsrCaptureConstants.ASR_RESULT)) {\r\n                            text = bundle.getString(MLAsrCaptureConstants.ASR_RESULT);\r\n                            textView3.setText(text);\r\n        // Process the recognized text information.\r\n                        }\r\n                    }\r\n                    break;\r\n        // MLAsrCaptureConstants.ASR_FAILURE: Recognition fails.\r\n                case MLAsrCaptureConstants.ASR_FAILURE:\r\n        // Processing logic for recognition failure.\r\n                    if(data != null) {\r\n                        Bundle bundle = data.getExtras();\r\n        // Check whether a result code is contained.\r\n                        if(bundle.containsKey(MLAsrCaptureConstants.ASR_ERROR_CODE)) {\r\n                            int errorCode = bundle.getInt(MLAsrCaptureConstants.ASR_ERROR_CODE);\r\n        // Perform troubleshooting based on the result code.\r\n                        }\r\n        // Check whether error information is contained.\r\n                        if(bundle.containsKey(MLAsrCaptureConstants.ASR_ERROR_MESSAGE)){\r\n                            String errorMsg = bundle.getString(MLAsrCaptureConstants.ASR_ERROR_MESSAGE);\r\n        // Perform troubleshooting based on the error information.\r\n                        }\r\n        // Check whether a sub-result code is contained.\r\n                        if(bundle.containsKey(MLAsrCaptureConstants.ASR_SUB_ERROR_CODE)) {\r\n                            int subErrorCode = bundle.getInt(MLAsrCaptureConstants.ASR_SUB_ERROR_CODE);\r\n        // Process the sub-result code.\r\n                        }\r\n                    }\r\n                default:\r\n                    break;\r\n            }\r\n        }\r\n\r\n    }\r\n\r\n    private boolean loadFragment(Fragment fragment) {\r\n        //switching fragment\r\n        if (fragment != null) {\r\n            getSupportFragmentManager()\r\n                    .beginTransaction()\r\n                    .replace(R.id.fragment_container, fragment)\r\n                    .commit();\r\n            return true;\r\n        }\r\n        return false;\r\n    }\r\n\r\n\r\n    //mic\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mytravelbuddy/MainActivity.java	(revision 87a8f2767c58fc9f72ba841e490f278b161a7d19)
++++ app/src/main/java/com/example/mytravelbuddy/MainActivity.java	(date 1633710707406)
+@@ -1,39 +1,24 @@
+ package com.example.mytravelbuddy;
+ 
+-import androidx.activity.result.ActivityResult;
+-import androidx.activity.result.ActivityResultCallback;
+-import androidx.activity.result.ActivityResultLauncher;
+-import androidx.activity.result.contract.ActivityResultContracts;
+-import androidx.annotation.NonNull;
+-import androidx.appcompat.app.AppCompatActivity;
+-import androidx.core.app.ActivityCompat;
+-import androidx.core.content.ContextCompat;
+-import androidx.fragment.app.Fragment;
+-
+-import android.Manifest;
+-import android.app.Activity;
+-import android.content.Context;
+ import android.content.Intent;
+-import android.content.pm.PackageManager;
+ import android.os.Bundle;
+-import android.util.Log;
+ import android.view.MenuItem;
+ import android.view.View;
+-import android.widget.ImageButton;
+ import android.widget.TextView;
+-import android.widget.Toast;
+ 
++import androidx.annotation.NonNull;
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.fragment.app.Fragment;
+ 
+-import com.example.mytravelbuddy.ui.Map_Activity;
+ import com.example.mytravelbuddy.ui.home.HomeFragment;
+ import com.example.mytravelbuddy.ui.map.Map_search;
+ import com.google.android.material.bottomnavigation.BottomNavigationView;
+ import com.google.android.material.floatingactionbutton.FloatingActionButton;
+ import com.google.android.material.navigation.NavigationBarView;
+-import com.huawei.hms.mlplugin.asr.MLAsrCaptureActivity;
+-import com.huawei.hms.mlplugin.asr.MLAsrCaptureConstants;
+-import com.huawei.hms.mlsdk.asr.MLAsrConstants;
+-import com.huawei.hms.mlsdk.asr.MLAsrRecognizer;
++//import com.huawei.hms.mlplugin.asr.MLAsrCaptureActivity;
++//import com.huawei.hms.mlplugin.asr.MLAsrCaptureConstants;
++//import com.huawei.hms.mlsdk.asr.MLAsrConstants;
++//import com.huawei.hms.mlsdk.asr.MLAsrRecognizer;
+ import com.huawei.hms.mlsdk.common.MLApplication;
+ 
+ public class MainActivity extends AppCompatActivity {

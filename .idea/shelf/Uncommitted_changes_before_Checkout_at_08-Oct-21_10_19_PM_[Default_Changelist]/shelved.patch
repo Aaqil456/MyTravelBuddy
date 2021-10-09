@@ -1,0 +1,2426 @@
+Index: app/src/main/res/drawable-v24/ic_launcher_foreground.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable-v24/ic_launcher_foreground.xml	(date 1632933207552)
++++ app/src/main/res/drawable-v24/ic_launcher_foreground.xml	(date 1632933207552)
+@@ -0,0 +1,30 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:aapt="http://schemas.android.com/aapt"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
++        <aapt:attr name="android:fillColor">
++            <gradient
++                android:endX="85.84757"
++                android:endY="92.4963"
++                android:startX="42.9492"
++                android:startY="49.59793"
++                android:type="linear">
++                <item
++                    android:color="#44000000"
++                    android:offset="0.0" />
++                <item
++                    android:color="#00000000"
++                    android:offset="1.0" />
++            </gradient>
++        </aapt:attr>
++    </path>
++    <path
++        android:fillColor="#FFFFFF"
++        android:fillType="nonZero"
++        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
++        android:strokeWidth="1"
++        android:strokeColor="#00000000" />
++</vector>
+\ No newline at end of file
+Index: app/src/main/res/values-night/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values-night/themes.xml	(date 1633358510529)
++++ app/src/main/res/values-night/themes.xml	(date 1633358510529)
+@@ -0,0 +1,16 @@
++<resources xmlns:tools="http://schemas.android.com/tools">
++    <!-- Base application theme. -->
++    <style name="Theme.MyTravelBuddy" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
++        <!-- Primary brand color. -->
++        <item name="colorPrimary">@color/purple_200</item>
++        <item name="colorPrimaryVariant">@color/purple_700</item>
++        <item name="colorOnPrimary">@color/black</item>
++        <!-- Secondary brand color. -->
++        <item name="colorSecondary">@color/teal_200</item>
++        <item name="colorSecondaryVariant">@color/teal_200</item>
++        <item name="colorOnSecondary">@color/black</item>
++        <!-- Status bar color. -->
++        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
++        <!-- Customize your theme here. -->
++    </style>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(date 1632933206811)
++++ app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(date 1632933206811)
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+\ No newline at end of file
+Index: app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(date 1632933207582)
++++ app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(date 1632933207582)
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@drawable/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+\ No newline at end of file
+Index: app/src/main/java/com/example/mytravelbuddy/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mytravelbuddy/MainActivity.java	(date 1633622469301)
++++ app/src/main/java/com/example/mytravelbuddy/MainActivity.java	(date 1633622469301)
+@@ -0,0 +1,69 @@
++package com.example.mytravelbuddy;
++
++import androidx.annotation.NonNull;
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.fragment.app.Fragment;
++
++import android.content.Intent;
++import android.os.Bundle;
++import android.view.MenuItem;
++
++
++import com.example.mytravelbuddy.ui.Map_Activity;
++import com.example.mytravelbuddy.ui.home.HomeFragment;
++import com.example.mytravelbuddy.ui.map.Map_search;
++import com.google.android.material.bottomnavigation.BottomNavigationView;
++import com.google.android.material.navigation.NavigationBarView;
++
++public class MainActivity extends AppCompatActivity {
++
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_bottom_navigation);
++
++
++
++        //loading the default fragment
++        loadFragment(new HomeFragment());
++
++        //getting bottom navigation view and attaching the listener
++        BottomNavigationView navigation = findViewById(R.id.bottomNavigationView);
++        navigation.setBackground(null);
++        navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
++            @Override
++            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
++                Fragment fragment = null;
++
++                switch (item.getItemId()) {
++                    case R.id.navigation_home:
++                        fragment = new HomeFragment();
++                        break;
++
++                    case R.id.navigation_map:
++                        fragment = new Map_search();
++
++                        break;
++
++                }
++
++                return loadFragment(fragment);
++            }
++        });
++    }
++
++
++
++    private boolean loadFragment(Fragment fragment) {
++        //switching fragment
++        if (fragment != null) {
++            getSupportFragmentManager()
++                    .beginTransaction()
++                    .replace(R.id.fragment_container, fragment)
++                    .commit();
++            return true;
++        }
++        return false;
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/mytravelbuddy/LocationBroadcastReceiver.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mytravelbuddy/LocationBroadcastReceiver.java	(date 1633618224125)
++++ app/src/main/java/com/example/mytravelbuddy/LocationBroadcastReceiver.java	(date 1633618224125)
+@@ -0,0 +1,250 @@
++package com.example.mytravelbuddy;
++
++import android.Manifest;
++import android.app.PendingIntent;
++import android.content.BroadcastReceiver;
++import android.content.Context;
++import android.content.Intent;
++import android.content.IntentSender;
++import android.content.pm.PackageManager;
++import android.location.Location;
++import android.location.LocationManager;
++import android.os.Build;
++import android.os.Bundle;
++import android.os.Looper;
++import android.util.Log;
++
++import androidx.annotation.Nullable;
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.core.app.ActivityCompat;
++
++import com.huawei.hmf.tasks.OnFailureListener;
++import com.huawei.hmf.tasks.OnSuccessListener;
++import com.huawei.hmf.tasks.Task;
++import com.huawei.hms.common.ApiException;
++import com.huawei.hms.common.ResolvableApiException;
++import com.huawei.hms.location.FusedLocationProviderClient;
++import com.huawei.hms.location.Geofence;
++import com.huawei.hms.location.GeofenceService;
++import com.huawei.hms.location.LocationCallback;
++import com.huawei.hms.location.LocationRequest;
++import com.huawei.hms.location.LocationResult;
++import com.huawei.hms.location.LocationServices;
++import com.huawei.hms.location.LocationSettingsRequest;
++import com.huawei.hms.location.LocationSettingsResponse;
++import com.huawei.hms.location.LocationSettingsStates;
++import com.huawei.hms.location.LocationSettingsStatusCodes;
++import com.huawei.hms.location.SettingsClient;
++
++import java.util.ArrayList;
++
++import static android.content.ContentValues.TAG;
++
++public class LocationBroadcastReceiver extends AppCompatActivity {
++// Dynamically apply for required permissions if the API level is 28 or lower.
++
++    // Define a FusedLocationProviderClient object.
++    private FusedLocationProviderClient fusedLocationProviderClient;
++    // Define a location request object.
++    private LocationRequest mLocationRequest;
++
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
++            Log.i(TAG, "android sdk <= 28 Q");
++            if (ActivityCompat.checkSelfPermission(this,
++                    Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
++                    && ActivityCompat.checkSelfPermission(this,
++                    Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
++                String[] strings =
++                        {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
++                ActivityCompat.requestPermissions(this, strings, 1);
++            }
++        } else {
++            // Dynamically apply for the android.permission.ACCESS_BACKGROUND_LOCATION permission in addition to the preceding permissions if the API level is higher than 28.
++            if (ActivityCompat.checkSelfPermission(this,
++                    Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
++                    && ActivityCompat.checkSelfPermission(this,
++                    Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
++                    && ActivityCompat.checkSelfPermission(this,
++                    "android.permission.ACCESS_BACKGROUND_LOCATION") != PackageManager.PERMISSION_GRANTED) {
++                String[] strings = {android.Manifest.permission.ACCESS_FINE_LOCATION,
++                        android.Manifest.permission.ACCESS_COARSE_LOCATION,
++                        "android.permission.ACCESS_BACKGROUND_LOCATION"};
++                ActivityCompat.requestPermissions(this, strings, 2);
++            }
++        }
++        //to obtain SettingsClient instance
++        SettingsClient settingsClient = LocationServices.getSettingsClient(this);
++        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
++
++        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
++        mLocationRequest = new LocationRequest();
++        builder.addLocationRequest(mLocationRequest);
++        LocationSettingsRequest locationSettingsRequest = builder.build();
++
++        // Check the device location settings.
++        settingsClient.checkLocationSettings(locationSettingsRequest)
++                // Define the listener for success in calling the API for checking device location settings.
++                .addOnSuccessListener(new OnSuccessListener<LocationSettingsResponse>() {
++                    @Override
++                    public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
++                        LocationSettingsStates locationSettingsStates =
++                                locationSettingsResponse.getLocationSettingsStates();
++                        StringBuilder stringBuilder = new StringBuilder();
++                        // Checks whether the location function is enabled.
++                        stringBuilder.append(",\nisLocationUsable=")
++                                .append(locationSettingsStates.isLocationUsable());
++                        // Checks whether HMS Core (APK) is available.
++                        stringBuilder.append(",\nisHMSLocationUsable=")
++                                .append(locationSettingsStates.isHMSLocationUsable());
++                        Log.i(TAG, "checkLocationSetting onComplete:" + stringBuilder.toString());
++                    }
++                })
++                // Define callback for failure in checking the device location settings.
++                .addOnFailureListener(new OnFailureListener() {
++                    @Override
++                    public void onFailure(Exception e) {
++                        // Processing when the device is a Huawei device and has HMS Core (APK) installed, but its settings do not meet the location requirements.
++                        int statusCode = ((ApiException) e).getStatusCode();
++                        switch (statusCode) {
++                            case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
++                                try {
++                                    ResolvableApiException rae = (ResolvableApiException) e;
++                                    // Call startResolutionForResult to display a popup asking the user to enable related permission.
++                                    rae.startResolutionForResult(LocationBroadcastReceiver.this, 0);
++                                } catch (IntentSender.SendIntentException sie) {
++                                    // TODO
++                                }
++                                break;
++                        }
++                    }
++                });
++
++        //parameters for continuously requesting device locations
++        LocationRequest mLocationRequest = new LocationRequest();
++        // Set the location update interval (unit: ms).
++        mLocationRequest.setInterval(10000);
++        // Set the location type.
++        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
++
++        LocationCallback mLocationCallback;
++        mLocationCallback = new LocationCallback() {
++            @Override
++            public void onLocationResult(LocationResult locationResult) {
++                if (locationResult != null) {
++                    // Process the location callback result.
++                }
++            }
++        };
++
++        fusedLocationProviderClient
++                .requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.getMainLooper())
++                .addOnSuccessListener(new OnSuccessListener<Void>() {
++                    @Override
++                    public void onSuccess(Void aVoid) {
++                        // Processing when the API call is successful.
++                    }
++                })
++                .addOnFailureListener(new OnFailureListener() {
++                    @Override
++                    public void onFailure(Exception e) {
++                        // Processing when the API call fails.
++                    }
++                });
++
++        // Note: When requesting location updates is stopped, mLocationCallback must be the same object as LocationCallback in the requestLocationUpdates method.
++        fusedLocationProviderClient.removeLocationUpdates(mLocationCallback)
++                // Define callback for success in stopping requesting location updates.
++                .addOnSuccessListener(new OnSuccessListener<Void>() {
++                    @Override
++                    public void onSuccess(Void aVoid) {
++                        // TODO
++                    }
++                })
++                // Define callback for failure in stopping requesting location updates.
++                .addOnFailureListener(new OnFailureListener() {
++                    @Override
++                    public void onFailure(Exception e) {
++                        // TODO
++                    }
++                });
++
++        // Obtain the last known location.
++        Task<Location> task = fusedLocationProviderClient.getLastLocation()
++                // Define callback for success in obtaining the last known location.
++                .addOnSuccessListener(new OnSuccessListener<Location>() {
++                    @Override
++                    public void onSuccess(Location location) {
++                        if (location == null) {
++                            return;
++                        }
++                        // Define logic for processing the Location object upon success.
++                        // TODO
++                    }
++                })
++                // Define callback for failure in obtaining the last known location.
++                .addOnFailureListener(new OnFailureListener() {
++                    @Override
++                    public void onFailure(Exception e) {
++                        // TODO
++                    }
++                });
++
++        // Set the mock mode. Pass true to enable it; pass false to disable it.
++        boolean mockFlag = true;
++        fusedLocationProviderClient.setMockMode(mockFlag)
++                .addOnSuccessListener(new OnSuccessListener<Void>() {
++                    @Override
++                    public void onSuccess(Void aVoid) {
++                        Log.i(TAG, "setMockMode onSuccess");
++                    }
++                })
++                .addOnFailureListener(new OnFailureListener() {
++                    @Override
++                    public void onFailure(Exception e) {
++                        Log.i(TAG, "setMockMode onFailure:" + e.getMessage());
++                    }
++                });
++
++        // Set a mock location.
++        final Location mockLocation = new Location(LocationManager.GPS_PROVIDER);
++        mockLocation.setLongitude(118.76);
++        mockLocation.setLatitude(31.98);
++        fusedLocationProviderClient.setMockLocation(mockLocation)
++                // Define callback for success in setting the mock location information.
++                .addOnSuccessListener(new OnSuccessListener<Void>() {
++                    @Override
++                    public void onSuccess(Void aVoid) {
++                        Log.i(TAG, "setMockLocation onSuccess");
++                    }
++                })
++                // Define callback for failure in setting the mock location information.
++                .addOnFailureListener(new OnFailureListener() {
++                    @Override
++                    public void onFailure(Exception e) {
++                        Log.i(TAG, "setMockLocation onFailure:" + e.getMessage());
++                    }
++                });
++
++        // Set a mock location.
++         final Location mock1Location = new Location(LocationManager.GPS_PROVIDER);
++        mock1Location.setLongitude(118.76);
++        mock1Location.setLatitude(31.98);
++        fusedLocationProviderClient.setMockLocation(mock1Location)
++                // Define callback for success in setting the mock location information.
++                .addOnSuccessListener(new OnSuccessListener<Void>() {
++                    @Override
++                    public void onSuccess(Void aVoid) {
++                        Log.i(TAG, "setMockLocation onSuccess");
++                    }
++                })
++                // Define callback for failure in setting the mock location information.
++                .addOnFailureListener(new OnFailureListener() {
++                    @Override
++                    public void onFailure(Exception e) {
++                        Log.i(TAG, "setMockLocation onFailure:" + e.getMessage());
++                    }
++                });
++    }
++}
+Index: app/src/main/java/com/example/mytravelbuddy/ui/WeatherActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mytravelbuddy/ui/WeatherActivity.java	(date 1633620376265)
++++ app/src/main/java/com/example/mytravelbuddy/ui/WeatherActivity.java	(date 1633620376265)
+@@ -0,0 +1,4 @@
++package com.example.mytravelbuddy.ui;
++
++public class WeatherActivity {
++}
+Index: app/src/main/java/com/example/mytravelbuddy/ui/Map_Activity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mytravelbuddy/ui/Map_Activity.java	(date 1633620450425)
++++ app/src/main/java/com/example/mytravelbuddy/ui/Map_Activity.java	(date 1633620450425)
+@@ -0,0 +1,99 @@
++package com.example.mytravelbuddy.ui;
++
++import static android.content.ContentValues.TAG;
++
++import android.os.Bundle;
++import android.util.Log;
++
++import androidx.annotation.NonNull;
++import androidx.annotation.Nullable;
++import androidx.appcompat.app.AppCompatActivity;
++
++import com.example.mytravelbuddy.R;
++import com.huawei.hms.maps.HuaweiMap;
++import com.huawei.hms.maps.MapView;
++import com.huawei.hms.maps.OnMapReadyCallback;
++
++public class Map_Activity extends AppCompatActivity implements OnMapReadyCallback {
++    private MapView mMapView;
++    @Override
++    protected void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.map_view);
++
++
++        mMapView = findViewById(R.id.mapview_mapviewdemo);
++        Bundle mapViewBundle = null;
++        if (savedInstanceState != null) {
++            mapViewBundle = savedInstanceState.getBundle("MapViewBundleKey");
++        }
++        mMapView.onCreate(mapViewBundle);
++        mMapView.getMapAsync(this);
++    }
++
++
++    @Override
++    public void onMapReady(@NonNull HuaweiMap huaweiMap) {
++        Log.d(TAG, "onMapReady: ");
++        HuaweiMap hMap = huaweiMap;
++    }
++
++    private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
++
++    @Override
++    public void onSaveInstanceState(Bundle outState) {
++        super.onSaveInstanceState(outState);
++
++        Bundle mapViewBundle = outState.getBundle(MAPVIEW_BUNDLE_KEY);
++        if (mapViewBundle == null) {
++            mapViewBundle = new Bundle();
++            outState.putBundle(MAPVIEW_BUNDLE_KEY, mapViewBundle);
++        }
++
++        mMapView.onSaveInstanceState(mapViewBundle);
++    }
++
++    @Override
++    protected void onStart() {
++        super.onStart();
++        mMapView.onStart();
++    }
++
++    @Override
++    protected void onResume() {
++        super.onResume();
++        mMapView.onResume();
++    }
++
++    @Override
++    protected void onPause() {
++        super.onPause();
++        mMapView.onPause();
++    }
++
++    @Override
++    protected void onStop() {
++        super.onStop();
++        mMapView.onStop();
++    }
++
++    @Override
++    protected void onDestroy() {
++        super.onDestroy();
++        mMapView.onDestroy();
++    }
++
++    @Override
++    public void onLowMemory() {
++        super.onLowMemory();
++        mMapView.onLowMemory();
++    }
++
++    @Override
++    public void onPointerCaptureChanged(boolean hasCapture) {
++
++    }
++
++
++
++}
+Index: app/src/main/java/com/example/mytravelbuddy/ui/map/GeoBroadcastReceiver.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mytravelbuddy/ui/map/GeoBroadcastReceiver.java	(date 1633623961577)
++++ app/src/main/java/com/example/mytravelbuddy/ui/map/GeoBroadcastReceiver.java	(date 1633623961577)
+@@ -0,0 +1,13 @@
++package com.example.mytravelbuddy.ui.map;
++
++import android.content.BroadcastReceiver;
++import android.content.Context;
++import android.content.Intent;
++
++public class GeoBroadcastReceiver extends BroadcastReceiver {
++
++    @Override
++    public void onReceive(Context context, Intent intent) {
++
++    }
++}
+Index: app/src/main/java/com/example/mytravelbuddy/ui/map/Map_search.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mytravelbuddy/ui/map/Map_search.java	(date 1633674426553)
++++ app/src/main/java/com/example/mytravelbuddy/ui/map/Map_search.java	(date 1633674426553)
+@@ -0,0 +1,45 @@
++package com.example.mytravelbuddy.ui.map;
++
++import android.content.Intent;
++import android.os.Bundle;
++import android.util.Log;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.TextView;
++
++import androidx.annotation.NonNull;
++import androidx.fragment.app.Fragment;
++
++import com.example.mytravelbuddy.R;
++import com.example.mytravelbuddy.databinding.FragmentMapsearchBinding;
++import com.example.mytravelbuddy.ui.Map_Activity;
++import com.huawei.hms.maps.HuaweiMap;
++import com.huawei.hms.maps.MapView;
++import com.huawei.hms.maps.OnMapReadyCallback;
++
++import static android.content.ContentValues.TAG;
++
++public class Map_search extends Fragment {
++
++    private FragmentMapsearchBinding binding;
++
++    private MapView mMapView;
++
++    public View onCreateView(@NonNull LayoutInflater inflater,
++                             ViewGroup container, Bundle savedInstanceState) {
++        binding = FragmentMapsearchBinding.inflate(inflater, container, false);
++        View root = binding.getRoot();
++
++       startActivity(new Intent(getContext(),Map_Activity.class));
++        return root;
++    }
++
++
++
++    @Override
++    public void onDestroyView() {
++        super.onDestroyView();
++        binding = null;
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/mytravelbuddy/ui/home/HomeFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mytravelbuddy/ui/home/HomeFragment.java	(date 1633672962570)
++++ app/src/main/java/com/example/mytravelbuddy/ui/home/HomeFragment.java	(date 1633672962570)
+@@ -0,0 +1,143 @@
++package com.example.mytravelbuddy.ui.home;
++
++import android.app.AlertDialog;
++import android.content.DialogInterface;
++import android.os.Bundle;
++import android.util.Log;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.Button;
++import android.widget.EditText;
++import android.widget.TextView;
++import android.widget.Toast;
++
++import androidx.annotation.NonNull;
++import androidx.fragment.app.Fragment;
++
++import com.example.mytravelbuddy.R;
++import com.example.mytravelbuddy.databinding.FragmentHomeBinding;
++import com.google.android.material.textfield.TextInputEditText;
++import com.huawei.hmf.tasks.OnFailureListener;
++import com.huawei.hmf.tasks.OnSuccessListener;
++import com.huawei.hmf.tasks.Task;
++import com.huawei.hms.mlsdk.common.MLApplication;
++import com.huawei.hms.mlsdk.common.MLException;
++import com.huawei.hms.mlsdk.translate.MLTranslatorFactory;
++import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslateSetting;
++import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslator;
++
++public class HomeFragment extends Fragment {
++
++
++    private FragmentHomeBinding binding;
++    private TextView outputtext;
++    private TextInputEditText inputtext1;
++    private Button translate,btn_language;
++    private String language;
++    int checkedItem;
++    String[]listItems = {"Malay", "Traditional Chinese", "Japanese", "Korean", "Tamil"};
++    String[]languageselected = {"ms", "zh", "ja", "ko", "ta"};
++
++
++    public View onCreateView(@NonNull LayoutInflater inflater,
++                             ViewGroup container, Bundle savedInstanceState) {
++        binding = FragmentHomeBinding.inflate(inflater, container, false);
++        View root = binding.getRoot();
++
++
++        //Language Kit
++        btn_language=root.findViewById(R.id.btn_language);
++        btn_language.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++
++                AlertDialog.Builder builder = new AlertDialog.Builder(root.getContext());
++                builder.setTitle("Choose item");
++
++                //this will checked the item when user open the dialog
++                builder.setSingleChoiceItems(listItems, checkedItem, new DialogInterface.OnClickListener() {
++                    @Override
++                    public void onClick(DialogInterface dialog, int which) {
++                        Toast.makeText(root.getContext(), "Position: " + which + " Value: " + listItems[which], Toast.LENGTH_LONG).show();
++                        language=languageselected[which];
++                        btn_language.setText(listItems[which]);
++                        checkedItem = which;
++                    }
++                });
++
++                builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
++                    @Override
++                    public void onClick(DialogInterface dialog, int which) {
++                        dialog.dismiss();
++                    }
++                });
++
++                AlertDialog dialog = builder.create();
++                dialog.show();
++            }
++        });
++
++
++        //TranslationMethod
++        inputtext1=root.findViewById(R.id.inputtext1);
++        outputtext=root.findViewById(R.id.outputtext);
++        translate=root.findViewById(R.id.btn_translate);
++        translate.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                translateFunction(inputtext1.getText().toString());
++            }
++        });
++
++        return root;
++    }
++
++    private void translateFunction(final String inputtext) {
++        MLApplication.getInstance().setApiKey(getResources().getString(R.string.api_key));
++
++        // Create a text translator using custom parameter settings.
++        MLRemoteTranslateSetting setting = new MLRemoteTranslateSetting
++                .Factory()
++                // Set the source language code. The BCP-47 standard is used for Traditional Chinese, and the ISO 639-1 standard is used for other languages. This parameter is optional. If this parameter is not set, the system automatically detects the language.
++                .setSourceLangCode("en")
++                // Set the target language code. The BCP-47 standard is used for Traditional Chinese, and the ISO 639-1 standard is used for other languages.
++//                .setTargetLangCode(languageselected.toString())
++                .setTargetLangCode(language)
++                .create();
++        MLRemoteTranslator mlRemoteTranslator = MLTranslatorFactory.getInstance().getRemoteTranslator(setting);
++        // sourceText: text to be translated, with up to 5000 characters.
++        final Task<String> task = mlRemoteTranslator.asyncTranslate(inputtext);
++        task.addOnSuccessListener(new OnSuccessListener<String>() {
++            @Override
++            public void onSuccess(String text) {
++                outputtext.setText(text);
++                Log.d(inputtext+"translated: ",text);
++                // Processing logic for recognition success.
++            }
++        }).addOnFailureListener(new OnFailureListener() {
++            @Override
++            public void onFailure(Exception e) {
++                // Processing logic for recognition failure.
++                try {
++                    MLException mlException = (MLException)e;
++                    // Obtain the result code. You can process the result code and customize respective messages displayed to users.
++                    int errorCode = mlException.getErrCode();
++                    // Obtain the error information. You can quickly locate the fault based on the result code.
++                    String errorMessage = mlException.getMessage();
++                } catch (Exception error) {
++                    if (mlRemoteTranslator!= null) {
++                        mlRemoteTranslator.stop();
++                    }
++                    // Handle the conversion error.
++                }
++            }
++        });
++    }
++
++    @Override
++    public void onDestroyView() {
++        super.onDestroyView();
++        binding = null;
++    }
++}
+\ No newline at end of file
+Index: app/src/test/java/com/example/mytravelbuddy/ExampleUnitTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/test/java/com/example/mytravelbuddy/ExampleUnitTest.java	(date 1632933206780)
++++ app/src/test/java/com/example/mytravelbuddy/ExampleUnitTest.java	(date 1632933206780)
+@@ -0,0 +1,17 @@
++package com.example.mytravelbuddy;
++
++import org.junit.Test;
++
++import static org.junit.Assert.*;
++
++/**
++ * Example local unit test, which will execute on the development machine (host).
++ *
++ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
++ */
++public class ExampleUnitTest {
++    @Test
++    public void addition_isCorrect() {
++        assertEquals(4, 2 + 2);
++    }
++}
+\ No newline at end of file
+Index: app/src/androidTest/java/com/example/mytravelbuddy/ExampleInstrumentedTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/androidTest/java/com/example/mytravelbuddy/ExampleInstrumentedTest.java	(date 1632933206677)
++++ app/src/androidTest/java/com/example/mytravelbuddy/ExampleInstrumentedTest.java	(date 1632933206677)
+@@ -0,0 +1,26 @@
++package com.example.mytravelbuddy;
++
++import android.content.Context;
++
++import androidx.test.platform.app.InstrumentationRegistry;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++
++import org.junit.Test;
++import org.junit.runner.RunWith;
++
++import static org.junit.Assert.*;
++
++/**
++ * Instrumented test, which will execute on an Android device.
++ *
++ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
++ */
++@RunWith(AndroidJUnit4.class)
++public class ExampleInstrumentedTest {
++    @Test
++    public void useAppContext() {
++        // Context of the app under test.
++        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
++        assertEquals("com.example.mytravelbuddy", appContext.getPackageName());
++    }
++}
+\ No newline at end of file
+Index: app/.idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/.idea/.gitignore	(date 1633620376251)
++++ app/.idea/.gitignore	(date 1633620376251)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: app/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/.idea/vcs.xml	(date 1633620376256)
++++ app/.idea/vcs.xml	(date 1633620376256)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/.idea/misc.xml	(date 1633620376254)
++++ app/.idea/misc.xml	(date 1633620376254)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/build/classes" />
++  </component>
++  <component name="ProjectType">
++    <option name="id" value="Android" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/.idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/.idea/gradle.xml	(date 1633620376253)
++++ app/.idea/gradle.xml	(date 1633620376253)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="testRunner" value="GRADLE" />
++        <option name="distributionType" value="DEFAULT_WRAPPED" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="resolveModulePerSourceSet" value="false" />
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: app/.idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/.idea/modules.xml	(date 1633620376254)
++++ app/.idea/modules.xml	(date 1633620376254)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- gradle/wrapper/gradle-wrapper.properties	(date 1632934031680)
++++ gradle/wrapper/gradle-wrapper.properties	(date 1632934031680)
+@@ -0,0 +1,6 @@
++#Thu Sep 30 00:47:11 SGT 2021
++distributionBase=GRADLE_USER_HOME
++distributionPath=wrapper/dists
++zipStoreBase=GRADLE_USER_HOME
++zipStorePath=wrapper/dists
++distributionUrl=https\://services.gradle.org/distributions/gradle-6.5-all.zip
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(date 1633672894615)
++++ app/src/main/AndroidManifest.xml	(date 1633672894615)
+@@ -0,0 +1,48 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    package="com.example.mytravelbuddy">
++    <!-- Allow the app to access Internet.-->
++    <uses-permission android:name="android.permission.INTERNET" />
++    <!--Allow the app to query the network status.-->
++    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
++    <!-- Allow the app to read common data. -->
++    <uses-permission android:name="com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA" />
++    <!-- Allow the app to change the WLAN status. -->
++    <!-- Location kit -->
++    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
++    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
++    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
++
++    <uses-permission
++        android:name="android.permission.ACCESS_MOCK_LOCATION"
++        tools:ignore="MockLocation,ProtectedPermissions" />
++
++
++    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
++    <!-- Allow the app to obtain the coarse longitude and latitude of a user through the Wi-Fi network or base station. -->
++    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
++    <!-- Allow the app to receive location information from satellites through the GPS chip. -->
++    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
++    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.MyTravelBuddy">
++
++        <activity android:name=".ui.Map_Activity" />
++        <activity android:name=".LocationBroadcastReceiver" />
++
++
++
++        <activity android:name=".MainActivity">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <meta-data android:name="com.huawei.hms.client.channel.androidMarket" android:value="false" />
++    </application>
++    <queries>
++        <intent>
++            <action android:name="com.huawei.hms.core.aidlservice" />
++        </intent>
++    </queries>
++</manifest>
++
+Index: gradlew
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- gradlew	(date 1632933204591)
++++ gradlew	(date 1632933204591)
+@@ -0,0 +1,172 @@
++#!/usr/bin/env sh
++
++##############################################################################
++##
++##  Gradle start up script for UN*X
++##
++##############################################################################
++
++# Attempt to set APP_HOME
++# Resolve links: $0 may be a link
++PRG="$0"
++# Need this for relative symlinks.
++while [ -h "$PRG" ] ; do
++    ls=`ls -ld "$PRG"`
++    link=`expr "$ls" : '.*-> \(.*\)$'`
++    if expr "$link" : '/.*' > /dev/null; then
++        PRG="$link"
++    else
++        PRG=`dirname "$PRG"`"/$link"
++    fi
++done
++SAVED="`pwd`"
++cd "`dirname \"$PRG\"`/" >/dev/null
++APP_HOME="`pwd -P`"
++cd "$SAVED" >/dev/null
++
++APP_NAME="Gradle"
++APP_BASE_NAME=`basename "$0"`
++
++# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
++DEFAULT_JVM_OPTS=""
++
++# Use the maximum available, or set MAX_FD != -1 to use that value.
++MAX_FD="maximum"
++
++warn () {
++    echo "$*"
++}
++
++die () {
++    echo
++    echo "$*"
++    echo
++    exit 1
++}
++
++# OS specific support (must be 'true' or 'false').
++cygwin=false
++msys=false
++darwin=false
++nonstop=false
++case "`uname`" in
++  CYGWIN* )
++    cygwin=true
++    ;;
++  Darwin* )
++    darwin=true
++    ;;
++  MINGW* )
++    msys=true
++    ;;
++  NONSTOP* )
++    nonstop=true
++    ;;
++esac
++
++CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
++
++# Determine the Java command to use to start the JVM.
++if [ -n "$JAVA_HOME" ] ; then
++    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
++        # IBM's JDK on AIX uses strange locations for the executables
++        JAVACMD="$JAVA_HOME/jre/sh/java"
++    else
++        JAVACMD="$JAVA_HOME/bin/java"
++    fi
++    if [ ! -x "$JAVACMD" ] ; then
++        die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
++
++Please set the JAVA_HOME variable in your environment to match the
++location of your Java installation."
++    fi
++else
++    JAVACMD="java"
++    which java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
++
++Please set the JAVA_HOME variable in your environment to match the
++location of your Java installation."
++fi
++
++# Increase the maximum file descriptors if we can.
++if [ "$cygwin" = "false" -a "$darwin" = "false" -a "$nonstop" = "false" ] ; then
++    MAX_FD_LIMIT=`ulimit -H -n`
++    if [ $? -eq 0 ] ; then
++        if [ "$MAX_FD" = "maximum" -o "$MAX_FD" = "max" ] ; then
++            MAX_FD="$MAX_FD_LIMIT"
++        fi
++        ulimit -n $MAX_FD
++        if [ $? -ne 0 ] ; then
++            warn "Could not set maximum file descriptor limit: $MAX_FD"
++        fi
++    else
++        warn "Could not query maximum file descriptor limit: $MAX_FD_LIMIT"
++    fi
++fi
++
++# For Darwin, add options to specify how the application appears in the dock
++if $darwin; then
++    GRADLE_OPTS="$GRADLE_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/gradle.icns\""
++fi
++
++# For Cygwin, switch paths to Windows format before running java
++if $cygwin ; then
++    APP_HOME=`cygpath --path --mixed "$APP_HOME"`
++    CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`
++    JAVACMD=`cygpath --unix "$JAVACMD"`
++
++    # We build the pattern for arguments to be converted via cygpath
++    ROOTDIRSRAW=`find -L / -maxdepth 1 -mindepth 1 -type d 2>/dev/null`
++    SEP=""
++    for dir in $ROOTDIRSRAW ; do
++        ROOTDIRS="$ROOTDIRS$SEP$dir"
++        SEP="|"
++    done
++    OURCYGPATTERN="(^($ROOTDIRS))"
++    # Add a user-defined pattern to the cygpath arguments
++    if [ "$GRADLE_CYGPATTERN" != "" ] ; then
++        OURCYGPATTERN="$OURCYGPATTERN|($GRADLE_CYGPATTERN)"
++    fi
++    # Now convert the arguments - kludge to limit ourselves to /bin/sh
++    i=0
++    for arg in "$@" ; do
++        CHECK=`echo "$arg"|egrep -c "$OURCYGPATTERN" -`
++        CHECK2=`echo "$arg"|egrep -c "^-"`                                 ### Determine if an option
++
++        if [ $CHECK -ne 0 ] && [ $CHECK2 -eq 0 ] ; then                    ### Added a condition
++            eval `echo args$i`=`cygpath --path --ignore --mixed "$arg"`
++        else
++            eval `echo args$i`="\"$arg\""
++        fi
++        i=$((i+1))
++    done
++    case $i in
++        (0) set -- ;;
++        (1) set -- "$args0" ;;
++        (2) set -- "$args0" "$args1" ;;
++        (3) set -- "$args0" "$args1" "$args2" ;;
++        (4) set -- "$args0" "$args1" "$args2" "$args3" ;;
++        (5) set -- "$args0" "$args1" "$args2" "$args3" "$args4" ;;
++        (6) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" ;;
++        (7) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" ;;
++        (8) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" ;;
++        (9) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" "$args8" ;;
++    esac
++fi
++
++# Escape application args
++save () {
++    for i do printf %s\\n "$i" | sed "s/'/'\\\\''/g;1s/^/'/;\$s/\$/' \\\\/" ; done
++    echo " "
++}
++APP_ARGS=$(save "$@")
++
++# Collect all arguments for the java command, following the shell quoting and substitution rules
++eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS "\"-Dorg.gradle.appname=$APP_BASE_NAME\"" -classpath "\"$CLASSPATH\"" org.gradle.wrapper.GradleWrapperMain "$APP_ARGS"
++
++# by default we should be in the correct project dir, but when run from Finder on Mac, the cwd is wrong
++if [ "$(uname)" = "Darwin" ] && [ "$HOME" = "$PWD" ]; then
++  cd "$(dirname "$0")"
++fi
++
++exec "$JAVACMD" "$@"
+Index: settings.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- settings.gradle	(date 1632933205919)
++++ settings.gradle	(date 1632933205919)
+@@ -0,0 +1,2 @@
++include ':app'
++rootProject.name = "MyTravelBuddy"
+\ No newline at end of file
+Index: gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- gradle.properties	(date 1632933204899)
++++ gradle.properties	(date 1632933204899)
+@@ -0,0 +1,19 @@
++# Project-wide Gradle settings.
++# IDE (e.g. Android Studio) users:
++# Gradle settings configured through the IDE *will override*
++# any settings specified in this file.
++# For more details on how to configure your build environment visit
++# http://www.gradle.org/docs/current/userguide/build_environment.html
++# Specifies the JVM arguments used for the daemon process.
++# The setting is particularly useful for tweaking memory settings.
++org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
++# When configured, Gradle will run in incubating parallel mode.
++# This option should only be used with decoupled projects. More details, visit
++# http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
++# org.gradle.parallel=true
++# AndroidX package structure to make it clearer which packages are bundled with the
++# Android operating system, and which are packaged with your app"s APK
++# https://developer.android.com/topic/libraries/support-library/androidx-rn
++android.useAndroidX=true
++# Automatically convert third-party libraries to use AndroidX
++android.enableJetifier=true
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .gitignore	(date 1632933204447)
++++ .gitignore	(date 1632933204447)
+@@ -0,0 +1,15 @@
++*.iml
++.gradle
++/local.properties
++/.idea/caches
++/.idea/libraries
++/.idea/modules.xml
++/.idea/workspace.xml
++/.idea/navEditor.xml
++/.idea/assetWizardSettings.xml
++.DS_Store
++/build
++/captures
++.externalNativeBuild
++.cxx
++local.properties
+Index: gradlew.bat
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- gradlew.bat	(date 1632933204601)
++++ gradlew.bat	(date 1632933204601)
+@@ -0,0 +1,84 @@
++@if "%DEBUG%" == "" @echo off
++@rem ##########################################################################
++@rem
++@rem  Gradle startup script for Windows
++@rem
++@rem ##########################################################################
++
++@rem Set local scope for the variables with windows NT shell
++if "%OS%"=="Windows_NT" setlocal
++
++set DIRNAME=%~dp0
++if "%DIRNAME%" == "" set DIRNAME=.
++set APP_BASE_NAME=%~n0
++set APP_HOME=%DIRNAME%
++
++@rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
++set DEFAULT_JVM_OPTS=
++
++@rem Find java.exe
++if defined JAVA_HOME goto findJavaFromJavaHome
++
++set JAVA_EXE=java.exe
++%JAVA_EXE% -version >NUL 2>&1
++if "%ERRORLEVEL%" == "0" goto init
++
++echo.
++echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
++echo.
++echo Please set the JAVA_HOME variable in your environment to match the
++echo location of your Java installation.
++
++goto fail
++
++:findJavaFromJavaHome
++set JAVA_HOME=%JAVA_HOME:"=%
++set JAVA_EXE=%JAVA_HOME%/bin/java.exe
++
++if exist "%JAVA_EXE%" goto init
++
++echo.
++echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME%
++echo.
++echo Please set the JAVA_HOME variable in your environment to match the
++echo location of your Java installation.
++
++goto fail
++
++:init
++@rem Get command-line arguments, handling Windows variants
++
++if not "%OS%" == "Windows_NT" goto win9xME_args
++
++:win9xME_args
++@rem Slurp the command line arguments.
++set CMD_LINE_ARGS=
++set _SKIP=2
++
++:win9xME_args_slurp
++if "x%~1" == "x" goto execute
++
++set CMD_LINE_ARGS=%*
++
++:execute
++@rem Setup the command line
++
++set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
++
++@rem Execute Gradle
++"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %CMD_LINE_ARGS%
++
++:end
++@rem End local scope for the variables with windows NT shell
++if "%ERRORLEVEL%"=="0" goto mainEnd
++
++:fail
++rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of
++rem the _cmd.exe /c_ return code!
++if  not "" == "%GRADLE_EXIT_CONSOLE%" exit 1
++exit /b 1
++
++:mainEnd
++if "%OS%"=="Windows_NT" endlocal
++
++:omega
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(date 1633358510530)
++++ build.gradle	(date 1633358510530)
+@@ -0,0 +1,27 @@
++// Top-level build file where you can add configuration options common to all sub-projects/modules.
++buildscript {
++    repositories {
++        maven { url 'https://developer.huawei.com/repo/' }
++
++        google()
++        jcenter()
++    }
++    dependencies {
++        classpath "com.android.tools.build:gradle:4.1.2"
++        classpath 'com.huawei.agconnect:agcp:1.5.2.300'
++        // NOTE: Do not place your application dependencies here; they belong
++        // in the individual module build.gradle files
++    }
++}
++
++allprojects {
++    repositories {
++        maven {url 'https://developer.huawei.com/repo/'}
++        google()
++        jcenter()
++    }
++}
++
++task clean(type: Delete) {
++    delete rootProject.buildDir
++}
+\ No newline at end of file
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(date 1633620376257)
++++ app/build.gradle	(date 1633620376257)
+@@ -0,0 +1,58 @@
++plugins {
++    id 'com.android.application'
++    id 'com.huawei.agconnect'
++}
++
++android {
++    compileSdkVersion 30
++    buildToolsVersion "30.0.2"
++
++    defaultConfig {
++        applicationId "com.example.mytravelbuddy"
++        minSdkVersion 28
++        targetSdkVersion 30
++        versionCode 1
++        versionName "1.0"
++
++        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
++    }
++
++    buildTypes {
++        release {
++            minifyEnabled false
++            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
++        }
++    }
++    compileOptions {
++        sourceCompatibility JavaVersion.VERSION_1_8
++        targetCompatibility JavaVersion.VERSION_1_8
++    }
++    buildFeatures {
++        viewBinding true
++    }
++}
++
++dependencies {
++
++    implementation 'androidx.appcompat:appcompat:1.3.1'
++    implementation 'com.google.android.material:material:1.4.0'
++    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
++    implementation 'com.google.android.material:material:1.3.0-alpha03'
++    implementation 'com.huawei.agconnect:agconnect-core:1.5.2.300'
++    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
++    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
++    implementation 'androidx.navigation:navigation-fragment:2.3.5'
++    implementation 'androidx.navigation:navigation-ui:2.3.5'
++    implementation 'com.google.android.gms:play-services-maps:17.0.1'
++    apply plugin: 'com.huawei.agconnect'
++    testImplementation 'junit:junit:4.+'
++    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
++    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
++    implementation 'com.huawei.hms:awareness:1.0.7.303'
++    implementation 'com.huawei.hms:location:5.0.4.300'
++    implementation 'com.huawei.hms:maps:5.0.5.301'
++    implementation 'com.huawei.hms:ml-computer-translate:3.0.0.300'
++    implementation 'androidx.navigation:navigation-fragment:2.3.1'
++    implementation 'androidx.navigation:navigation-ui:2.3.1'
++    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
++}
+Index: app/src/main/res/navigation/mobile_navigation.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/navigation/mobile_navigation.xml	(date 1633620376290)
++++ app/src/main/res/navigation/mobile_navigation.xml	(date 1633620376290)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="utf-8"?>
++<navigation xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/mobile_navigation"
++    app:startDestination="@+id/navigation_home">
++
++    <fragment
++        android:id="@+id/navigation_home"
++        android:name="com.example.mytravelbuddy.ui.home.HomeFragment"
++        android:label="@string/title_home"
++        tools:layout="@layout/fragment_home" />
++
++
++    <fragment
++        android:id="@+id/navigation_notifications"
++        android:name="com.example.mytravelbuddy.ui.map.Map_search"
++        android:label="@string/title_map"
++        tools:layout="@layout/fragment_mapsearch" />
++</navigation>
+\ No newline at end of file
+Index: app/proguard-rules.pro
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/proguard-rules.pro	(date 1633617979731)
++++ app/proguard-rules.pro	(date 1633617979731)
+@@ -0,0 +1,45 @@
++# Add project specific ProGuard rules here.
++# You can control the set of applied configuration files using the
++# proguardFiles setting in build.gradle.
++#
++# For more details, see
++#   http://developer.android.com/guide/developing/tools/proguard.html
++
++# If your project uses WebView with JS, uncomment the following
++# and specify the fully qualified class name to the JavaScript interface
++# class:
++#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
++#   public *;
++#}
++
++# Uncomment this to preserve the line number information for
++# debugging stack traces.
++#-keepattributes SourceFile,LineNumberTable
++
++# If you keep the line number information, uncomment this to
++# hide the original source file name.
++#-renamesourcefileattribute SourceFile
++-ignorewarnings
++-keepattributes *Annotation*
++-keepattributes Exceptions
++-keepattributes InnerClasses
++-keepattributes Signature
++-keepattributes SourceFile,LineNumberTable
++#-keep class com.hianalytics.android.**{*;}
++#-keep class com.huawei.updatesdk.**{*;}
++#-keep class com.huawei.hms.**{*;}
++
++
++
++
++
++
++
++
++
++-keepattributes SourceFile,LineNumberTable
++#-keep class com.hianalytics.android.**{*;}
++#-keep class com.huawei.updatesdk.**{*;}
++#-keep class com.huawei.hms.**{*;}
++
++
+Index: app/agconnect-services.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/agconnect-services.json	(date 1633615734186)
++++ app/agconnect-services.json	(date 1633615734186)
+@@ -0,0 +1,70 @@
++{
++	"agcgw":{
++		"backurl":"connect-dra.dbankcloud.cn",
++		"url":"connect-dra.hispace.hicloud.com",
++		"websocketbackurl":"connect-ws-dra.hispace.dbankcloud.cn",
++		"websocketurl":"connect-ws-dra.hispace.dbankcloud.com"
++	},
++	"agcgw_all":{
++		"CN":"connect-drcn.hispace.hicloud.com",
++		"CN_back":"connect-drcn.dbankcloud.cn",
++		"DE":"connect-dre.hispace.hicloud.com",
++		"DE_back":"connect-dre.dbankcloud.cn",
++		"RU":"connect-drru.hispace.hicloud.com",
++		"RU_back":"connect-drru.dbankcloud.cn",
++		"SG":"connect-dra.hispace.hicloud.com",
++		"SG_back":"connect-dra.dbankcloud.cn"
++	},
++	"client":{
++		"cp_id":"2640060000022923671",
++		"product_id":"737518067793594768",
++		"client_id":"726967393108116416",
++		"client_secret":"50743EE03AD2D53C15FA17C9AE02AABC55B8D8A63749ADFC8544DF2FA5559093",
++		"project_id":"737518067793594768",
++		"app_id":"104790083",
++		"api_key":"CwEAAAAA87ygm62CxaYAnCnmLDj8LNdgxZ9Gt+/zTKg5oQDMsbJtWX/zNvzvhQN6gyEZKOWnoEQnrVwrDpT57bq0EZelxL3A9BE=",
++		"package_name":"com.example.mytravelbuddy"
++	},
++	"oauth_client":{
++		"client_id":"104790083",
++		"client_type":1
++	},
++	"app_info":{
++		"app_id":"104790083",
++		"package_name":"com.example.mytravelbuddy"
++	},
++	"service":{
++		"analytics":{
++			"collector_url":"datacollector-dra.dt.hicloud.com,datacollector-dra.dt.dbankcloud.cn",
++			"resource_id":"p1",
++			"channel_id":""
++		},
++		"search":{
++			"url":"https://search-dra.cloud.huawei.com"
++		},
++		"cloudstorage":{
++			"storage_url":"https://ops-dra.agcstorage.link"
++		},
++		"ml":{
++			"mlservice_url":"ml-api-dra.ai.dbankcloud.com,ml-api-dra.ai.dbankcloud.cn"
++		}
++	},
++	"region":"SG",
++	"configuration_version":"3.0",
++	"appInfos":[
++		{
++			"package_name":"com.example.mytravelbuddy",
++			"client":{
++				"app_id":"104790083"
++			},
++			"app_info":{
++				"package_name":"com.example.mytravelbuddy",
++				"app_id":"104790083"
++			},
++			"oauth_client":{
++				"client_type":1,
++				"client_id":"104790083"
++			}
++		}
++	]
++}
+\ No newline at end of file
+Index: app/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/.gitignore	(date 1632933205041)
++++ app/.gitignore	(date 1632933205041)
+@@ -0,0 +1,1 @@
++/build
+\ No newline at end of file
+Index: app/src/main/res/menu/bottom_nav_menu.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/menu/bottom_nav_menu.xml	(date 1633620376289)
++++ app/src/main/res/menu/bottom_nav_menu.xml	(date 1633620376289)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<menu xmlns:android="http://schemas.android.com/apk/res/android">
++
++    <item
++        android:id="@+id/navigation_home"
++        android:icon="@drawable/ic_home_black_24dp"
++        android:title="@string/title_home" />
++
++
++    <item
++        android:id="@+id/navigation_map"
++        android:icon="@drawable/ic_baseline_map_24"
++        android:title="@string/title_map" />
++
++</menu>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_bottom_navigation.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_bottom_navigation.xml	(date 1633620376283)
++++ app/src/main/res/layout/activity_bottom_navigation.xml	(date 1633620376283)
+@@ -0,0 +1,49 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.coordinatorlayout.widget.CoordinatorLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".MainActivity">
++
++
++    <FrameLayout
++        android:id="@+id/fragment_container"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_marginBottom="56dp"
++        android:text="@string/title_home"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <com.google.android.material.bottomappbar.BottomAppBar
++        android:id="@+id/bottomAppBar"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_gravity="bottom"
++        android:background="@android:color/transparent"
++        app:fabCradleMargin="10dp"
++        app:fabCradleRoundedCornerRadius="10dp"
++        app:fabCradleVerticalOffset="10dp">
++
++        <com.google.android.material.bottomnavigation.BottomNavigationView
++            android:id="@+id/bottomNavigationView"
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_marginHorizontal="10dp"
++            android:background="@android:color/transparent"
++            app:menu="@menu/bottom_nav_menu" />
++
++    </com.google.android.material.bottomappbar.BottomAppBar>
++
++    <com.google.android.material.floatingactionbutton.FloatingActionButton
++        android:id="@+id/mic"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:contentDescription="@string/app_name"
++        android:backgroundTint="@color/purple_200"
++        android:src="@drawable/ic_baseline_mic_24"
++        app:layout_anchor="@id/bottomAppBar" />
++
++</androidx.coordinatorlayout.widget.CoordinatorLayout>
+Index: app/src/main/res/layout/fragment_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_home.xml	(date 1633672954102)
++++ app/src/main/res/layout/fragment_home.xml	(date 1633672954102)
+@@ -0,0 +1,135 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".ui.home.HomeFragment">
++
++    <androidx.constraintlayout.widget.ConstraintLayout
++        android:id="@+id/translation"
++        android:layout_width="match_parent"
++        android:layout_height="400dp"
++        android:layout_marginTop="2dp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/WeatherContainer">
++
++        <androidx.cardview.widget.CardView
++            android:id="@+id/cardView"
++            android:layout_width="379dp"
++            android:layout_height="216dp"
++            android:backgroundTint="@color/grey"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/inputtext"
++            app:layout_constraintVertical_bias="0.14" >
++
++            <androidx.constraintlayout.widget.ConstraintLayout
++                android:layout_width="match_parent"
++                android:layout_height="match_parent">
++
++                <TextView
++                    android:id="@+id/outputtext"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:text="Translation"
++                    android:textColor="@color/black"
++                    android:textSize="18dp"
++                    app:layout_constraintBottom_toBottomOf="parent"
++                    app:layout_constraintEnd_toEndOf="parent"
++                    app:layout_constraintStart_toStartOf="parent"
++                    app:layout_constraintTop_toTopOf="parent" />
++
++                <TextView
++                    android:id="@+id/textView2"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:layout_marginStart="8dp"
++                    android:layout_marginTop="16dp"
++                    android:textColor="@color/black"
++                    android:text="Translated from English to:"
++                    app:layout_constraintStart_toStartOf="parent"
++                    app:layout_constraintTop_toTopOf="parent" />
++
++                <Button
++                    android:id="@+id/btn_language"
++                    android:layout_width="wrap_content"
++                    android:layout_height="32dp"
++                    android:layout_marginStart="10dp"
++                    android:text="Japanese"
++                    android:textSize="10dp"
++                    app:layout_constraintBottom_toBottomOf="@+id/textView2"
++                    app:layout_constraintStart_toEndOf="@+id/textView2"
++                    app:layout_constraintTop_toTopOf="@+id/textView2" />
++
++                <ImageButton
++                    android:id="@+id/btn_speaker"
++                    android:layout_width="40dp"
++                    android:layout_height="40dp"
++                    android:layout_marginEnd="4dp"
++                    android:layout_marginBottom="4dp"
++                    android:backgroundTint="@color/grey"
++                    android:src="@drawable/ic_baseline_speaker"
++                    app:layout_constraintBottom_toBottomOf="parent"
++                    app:layout_constraintEnd_toEndOf="parent" />
++
++            </androidx.constraintlayout.widget.ConstraintLayout>
++        </androidx.cardview.widget.CardView>
++
++        <com.google.android.material.textfield.TextInputLayout
++            android:id="@+id/inputtext"
++            android:layout_width="300dp"
++            android:layout_height="wrap_content"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent">
++
++            <com.google.android.material.textfield.TextInputEditText
++                android:id="@+id/inputtext1"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginStart="10dp"
++                android:textColor="@color/black"
++                android:backgroundTint="@color/white"
++                android:hint="Enter Text" />
++
++        </com.google.android.material.textfield.TextInputLayout>
++
++        <Button
++            android:id="@+id/btn_translate"
++            android:layout_width="86dp"
++            android:layout_height="45dp"
++            android:text="Enter"
++            app:layout_constraintBottom_toBottomOf="@+id/inputtext"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.538"
++            app:layout_constraintStart_toEndOf="@+id/inputtext"
++            app:layout_constraintTop_toTopOf="@+id/inputtext"
++            app:layout_constraintVertical_bias="1.0"
++            tools:ignore="TouchTargetSizeCheck" />
++
++    </androidx.constraintlayout.widget.ConstraintLayout>
++
++    <androidx.constraintlayout.widget.ConstraintLayout
++        android:id="@+id/WeatherContainer"
++        android:layout_width="match_parent"
++        android:layout_height="90dp"
++        android:background="@color/purple_200"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
++
++        <TextView
++            android:id="@+id/textView"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="Weather and Location"
++            android:textColor="@color/white"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent" />
++    </androidx.constraintlayout.widget.ConstraintLayout>
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_mapsearch.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_mapsearch.xml	(date 1633674171707)
++++ app/src/main/res/layout/fragment_mapsearch.xml	(date 1633674171707)
+@@ -0,0 +1,24 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".ui.map.Map_search">
++
++    <com.huawei.hms.maps.MapView
++        android:id="@+id/mapviewdemo"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="1.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.587" />
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/map_view.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/map_view.xml	(date 1633620376287)
++++ app/src/main/res/layout/map_view.xml	(date 1633620376287)
+@@ -0,0 +1,21 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:map="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    xmlns:tools="http://schemas.android.com/tools"
++    tools:context=".ui.Map_Activity">
++
++    <com.huawei.hms.maps.MapView
++        android:id="@+id/mapview_mapviewdemo"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        map:cameraTargetLat="48.893478"
++        map:cameraTargetLng="2.334595"
++        map:cameraZoom="10"
++        map:layout_constraintBottom_toBottomOf="parent"
++        map:layout_constraintEnd_toEndOf="parent"
++        map:layout_constraintStart_toStartOf="parent"
++        map:layout_constraintTop_toTopOf="parent" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(date 1633620376301)
++++ app/src/main/res/values/strings.xml	(date 1633620376301)
+@@ -0,0 +1,7 @@
++<resources>
++    <string name="app_name">MyTravelBuddy</string>
++    <string name="title_activity_bottom_navigation">BottomNavigation</string>
++    <string name="title_home">Home</string>
++    <string name="title_map">Map</string>
++    <string name="api_key">CwEAAAAA87ygm62CxaYAnCnmLDj8LNdgxZ9Gt+/zTKg5oQDMsbJtWX/zNvzvhQN6gyEZKOWnoEQnrVwrDpT57bq0EZelxL3A9BE=</string>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/values/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/themes.xml	(date 1633358564675)
++++ app/src/main/res/values/themes.xml	(date 1633358564675)
+@@ -0,0 +1,16 @@
++<resources xmlns:tools="http://schemas.android.com/tools">
++    <!-- Base application theme. -->
++    <style name="Theme.MyTravelBuddy" parent="Theme.MaterialComponents.DayNight.NoActionBar">
++        <!-- Primary brand color. -->
++        <item name="colorPrimary">@color/purple_200</item>
++        <item name="colorPrimaryVariant">@color/purple_700</item>
++        <item name="colorOnPrimary">@color/white</item>
++        <!-- Secondary brand color. -->
++        <item name="colorSecondary">@color/teal_200</item>
++        <item name="colorSecondaryVariant">@color/teal_700</item>
++        <item name="colorOnSecondary">@color/black</item>
++        <!-- Status bar color. -->
++        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
++        <!-- Customize your theme here. -->
++    </style>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(date 1633620376291)
++++ app/src/main/res/values/colors.xml	(date 1633620376291)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="purple_200">#FFBB86FC</color>
++    <color name="purple_500">#FF6200EE</color>
++    <color name="purple_700">#FF3700B3</color>
++    <color name="teal_200">#FF03DAC5</color>
++    <color name="teal_700">#FF018786</color>
++    <color name="black">#FF000000</color>
++    <color name="white">#FFFFFFFF</color>
++    <color name="grey">#F8F8F8</color>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/values/dimens.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/dimens.xml	(date 1633358564674)
++++ app/src/main/res/values/dimens.xml	(date 1633358564674)
+@@ -0,0 +1,5 @@
++<resources>
++    <!-- Default screen margins, per the Android Design guidelines. -->
++    <dimen name="activity_horizontal_margin">16dp</dimen>
++    <dimen name="activity_vertical_margin">16dp</dimen>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_baseline_mic_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_baseline_mic_24.xml	(date 1633358564668)
++++ app/src/main/res/drawable/ic_baseline_mic_24.xml	(date 1633358564668)
+@@ -0,0 +1,10 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24"
++    android:tint="?attr/colorControlNormal">
++  <path
++      android:fillColor="@android:color/white"
++      android:pathData="M12,14c1.66,0 2.99,-1.34 2.99,-3L15,5c0,-1.66 -1.34,-3 -3,-3S9,3.34 9,5v6c0,1.66 1.34,3 3,3zM17.3,11c0,3 -2.54,5.1 -5.3,5.1S6.7,14 6.7,11L5,11c0,3.41 2.72,6.23 6,6.72L11,21h2v-3.28c3.28,-0.48 6,-3.3 6,-6.72h-1.7z"/>
++</vector>
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1632933862385)
++++ .idea/vcs.xml	(date 1632933862385)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_notifications_black_24dp.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_notifications_black_24dp.xml	(date 1633358564670)
++++ app/src/main/res/drawable/ic_notifications_black_24dp.xml	(date 1633358564670)
+@@ -0,0 +1,9 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24.0"
++    android:viewportHeight="24.0">
++    <path
++        android:fillColor="#FF000000"
++        android:pathData="M12,22c1.1,0 2,-0.9 2,-2h-4c0,1.1 0.89,2 2,2zM18,16v-5c0,-3.07 -1.64,-5.64 -4.5,-6.32L13.5,4c0,-0.83 -0.67,-1.5 -1.5,-1.5s-1.5,0.67 -1.5,1.5v0.68C7.63,5.36 6,7.92 6,11v5l-2,2v1h16v-1l-2,-2z" />
++</vector>
+Index: app/src/main/res/drawable/ic_home_black_24dp.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_home_black_24dp.xml	(date 1633358564669)
++++ app/src/main/res/drawable/ic_home_black_24dp.xml	(date 1633358564669)
+@@ -0,0 +1,9 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24.0"
++    android:viewportHeight="24.0">
++    <path
++        android:fillColor="#FF000000"
++        android:pathData="M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z" />
++</vector>
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(date 1633672869562)
++++ .idea/gradle.xml	(date 1633672869562)
+@@ -0,0 +1,22 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="testRunner" value="PLATFORM" />
++        <option name="distributionType" value="DEFAULT_WRAPPED" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="1.8 (2)" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/app" />
++          </set>
++        </option>
++        <option name="resolveModulePerSourceSet" value="false" />
++        <option name="useQualifiedModuleNames" value="true" />
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_dashboard_black_24dp.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_dashboard_black_24dp.xml	(date 1633358564668)
++++ app/src/main/res/drawable/ic_dashboard_black_24dp.xml	(date 1633358564668)
+@@ -0,0 +1,9 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24.0"
++    android:viewportHeight="24.0">
++    <path
++        android:fillColor="#FF000000"
++        android:pathData="M3,13h8L11,3L3,3v10zM3,21h8v-6L3,15v6zM13,21h8L21,11h-8v10zM13,3v6h8L21,3h-8z" />
++</vector>
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/deploymentTargetDropDown.xml	(date 1633620376244)
++++ .idea/deploymentTargetDropDown.xml	(date 1633620376244)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="deploymentTargetDropDown">
++    <targetSelectedWithDropDown>
++      <Target>
++        <type value="QUICK_BOOT_TARGET" />
++        <deviceKey>
++          <Key>
++            <type value="VIRTUAL_DEVICE_PATH" />
++            <value value="D:\Edditing tools\SDK\AndroidStudio_SDK\platform-tools\.android\avd\Pixel_3_XL_API_28.avd" />
++          </Key>
++        </deviceKey>
++      </Target>
++    </targetSelectedWithDropDown>
++    <timeTargetWasSelectedWithDropDown value="2021-10-06T18:29:16.351332300Z" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_baseline_map_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_baseline_map_24.xml	(date 1633620376279)
++++ app/src/main/res/drawable/ic_baseline_map_24.xml	(date 1633620376279)
+@@ -0,0 +1,10 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24"
++    android:tint="?attr/colorControlNormal">
++  <path
++      android:fillColor="@android:color/white"
++      android:pathData="M20.5,3l-0.16,0.03L15,5.1 9,3 3.36,4.9c-0.21,0.07 -0.36,0.25 -0.36,0.48V20.5c0,0.28 0.22,0.5 0.5,0.5l0.16,-0.03L9,18.9l6,2.1 5.64,-1.9c0.21,-0.07 0.36,-0.25 0.36,-0.48V3.5c0,-0.28 -0.22,-0.5 -0.5,-0.5zM15,19l-6,-2.11V5l6,2.11V19z"/>
++</vector>
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(date 1633621027514)
++++ .idea/compiler.xml	(date 1633621027514)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="1.8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_baseline_language_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_baseline_language_24.xml	(date 1633672954086)
++++ app/src/main/res/drawable/ic_baseline_language_24.xml	(date 1633672954086)
+@@ -0,0 +1,10 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24"
++    android:tint="?attr/colorControlNormal">
++  <path
++      android:fillColor="@android:color/white"
++      android:pathData="M11.99,2C6.47,2 2,6.48 2,12s4.47,10 9.99,10C17.52,22 22,17.52 22,12S17.52,2 11.99,2zM18.92,8h-2.95c-0.32,-1.25 -0.78,-2.45 -1.38,-3.56 1.84,0.63 3.37,1.91 4.33,3.56zM12,4.04c0.83,1.2 1.48,2.53 1.91,3.96h-3.82c0.43,-1.43 1.08,-2.76 1.91,-3.96zM4.26,14C4.1,13.36 4,12.69 4,12s0.1,-1.36 0.26,-2h3.38c-0.08,0.66 -0.14,1.32 -0.14,2 0,0.68 0.06,1.34 0.14,2L4.26,14zM5.08,16h2.95c0.32,1.25 0.78,2.45 1.38,3.56 -1.84,-0.63 -3.37,-1.9 -4.33,-3.56zM8.03,8L5.08,8c0.96,-1.66 2.49,-2.93 4.33,-3.56C8.81,5.55 8.35,6.75 8.03,8zM12,19.96c-0.83,-1.2 -1.48,-2.53 -1.91,-3.96h3.82c-0.43,1.43 -1.08,2.76 -1.91,3.96zM14.34,14L9.66,14c-0.09,-0.66 -0.16,-1.32 -0.16,-2 0,-0.68 0.07,-1.35 0.16,-2h4.68c0.09,0.65 0.16,1.32 0.16,2 0,0.68 -0.07,1.34 -0.16,2zM14.59,19.56c0.6,-1.11 1.06,-2.31 1.38,-3.56h2.95c-0.96,1.65 -2.49,2.93 -4.33,3.56zM16.36,14c0.08,-0.66 0.14,-1.32 0.14,-2 0,-0.68 -0.06,-1.34 -0.14,-2h3.38c0.16,0.64 0.26,1.31 0.26,2s-0.1,1.36 -0.26,2h-3.38z"/>
++</vector>
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.gitignore	(date 1632933250834)
++++ .idea/.gitignore	(date 1632933250834)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: app/src/main/res/drawable/ic_baseline_speaker.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_baseline_speaker.xml	(date 1633672954086)
++++ app/src/main/res/drawable/ic_baseline_speaker.xml	(date 1633672954086)
+@@ -0,0 +1,11 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="24dp"
++    android:height="24dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24"
++    android:tint="@color/purple_200"
++    android:autoMirrored="true">
++  <path
++      android:fillColor="@android:color/white"
++      android:pathData="M3,9v6h4l5,5L12,4L7,9L3,9zM16.5,12c0,-1.77 -1.02,-3.29 -2.5,-4.03v8.05c1.48,-0.73 2.5,-2.25 2.5,-4.02zM14,3.23v2.06c2.89,0.86 5,3.54 5,6.71s-2.11,5.85 -5,6.71v2.06c4.01,-0.91 7,-4.49 7,-8.77s-2.99,-7.86 -7,-8.77z"/>
++</vector>
+Index: app/src/main/res/drawable/ic_launcher_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_launcher_background.xml	(date 1632933207508)
++++ app/src/main/res/drawable/ic_launcher_background.xml	(date 1632933207508)
+@@ -0,0 +1,170 @@
++<?xml version="1.0" encoding="utf-8"?>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <path
++        android:fillColor="#3DDC84"
++        android:pathData="M0,0h108v108h-108z" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M9,0L9,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,0L19,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M29,0L29,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M39,0L39,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M49,0L49,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M59,0L59,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M69,0L69,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M79,0L79,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M89,0L89,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M99,0L99,108"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,9L108,9"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,19L108,19"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,29L108,29"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,39L108,39"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,49L108,49"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,59L108,59"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,69L108,69"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,79L108,79"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,89L108,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M0,99L108,99"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,29L89,29"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,39L89,39"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,49L89,49"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,59L89,59"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,69L89,69"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M19,79L89,79"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M29,19L29,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M39,19L39,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M49,19L49,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M59,19L59,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M69,19L69,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++    <path
++        android:fillColor="#00000000"
++        android:pathData="M79,19L79,89"
++        android:strokeWidth="0.8"
++        android:strokeColor="#33FFFFFF" />
++</vector>
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/jarRepositories.xml	(date 1632933718708)
++++ .idea/jarRepositories.xml	(date 1632933718708)
+@@ -0,0 +1,30 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="BintrayJCenter" />
++      <option name="name" value="BintrayJCenter" />
++      <option name="url" value="https://jcenter.bintray.com/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="Google" />
++      <option name="name" value="Google" />
++      <option name="url" value="https://dl.google.com/dl/android/maven2/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="maven" />
++      <option name="name" value="maven" />
++      <option name="url" value="https://developer.huawei.com/repo/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1633672954165)
++++ .idea/misc.xml	(date 1633672954165)
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DesignSurface">
++    <option name="filePathToZoomLevelMap">
++      <map>
++        <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/drawable/ic_baseline_speaker.xml" value="0.4036458333333333" />
++        <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.161231884057971" />
++        <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/layout/fragment_home.xml" value="0.5" />
++        <entry key="..\:/Me, Myself And I/Projects/Lepak &amp; Leap/Huawei App/MyTravelBuddy/app/src/main/res/layout/fragment_mapsearch.xml" value="0.1884498480243161" />
++      </map>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/build/classes" />
++  </component>
++  <component name="ProjectType">
++    <option name="id" value="Android" />
++  </component>
++</project>
+\ No newline at end of file
