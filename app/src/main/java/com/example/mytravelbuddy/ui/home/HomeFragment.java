@@ -2,7 +2,13 @@ package com.example.mytravelbuddy.ui.home;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
@@ -11,27 +17,38 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultCaller;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.mytravelbuddy.MainActivity;
 import com.example.mytravelbuddy.R;
 import com.example.mytravelbuddy.databinding.FragmentHomeBinding;
-//import com.example.mytravelbuddy.ui.MLTtsConfig;
 import com.google.android.material.textfield.TextInputEditText;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
+import com.huawei.hms.mlsdk.MLAnalyzerFactory;
 import com.huawei.hms.mlsdk.common.MLApplication;
 import com.huawei.hms.mlsdk.common.MLException;
+import com.huawei.hms.mlsdk.common.MLFrame;
+import com.huawei.hms.mlsdk.text.MLLocalTextSetting;
+import com.huawei.hms.mlsdk.text.MLRemoteTextSetting;
+import com.huawei.hms.mlsdk.text.MLText;
+import com.huawei.hms.mlsdk.text.MLTextAnalyzer;
 import com.huawei.hms.mlsdk.translate.MLTranslatorFactory;
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslateSetting;
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslator;
 
-import java.util.Locale;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -47,6 +64,7 @@ public class HomeFragment extends Fragment {
     public String texttoSpeechLanguage;
     String[]listItems = {"Malay", "Traditional Chinese", "Japanese", "Korean", "Tamil","German","Spanish","Indonesian","Russian","Thai","Vietnamese"};
     String[]languageselected = {"ms", "zh", "ja", "ko", "ta","de","es","id","ru","th","vi"};
+    private static final String TAG = HomeFragment.class.getSimpleName();
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -100,6 +118,7 @@ public class HomeFragment extends Fragment {
                 TTS.setOnUtteranceProgressListener (new UtteranceProgressListener () {
                     @Override
                     public void onDone (String utteranceId) {
+                        Toast.makeText(getContext(), "Speech", Toast.LENGTH_SHORT).show();
 
                     }
                     @Override
