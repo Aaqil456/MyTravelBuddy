@@ -45,11 +45,13 @@ public class camera_translate extends AppCompatActivity{
         if (analyzer != null) {
             try {
                 analyzer.stop();
+                Toast.makeText(this, "Analyzer Stop", Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
                 // Exception handling.
             }
         }
         if (lensEngine != null) {
+            Toast.makeText(this, "Lens Stop", Toast.LENGTH_SHORT).show();
             lensEngine.release();
         }
 
