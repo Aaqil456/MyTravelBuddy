@@ -15,6 +15,7 @@ public class OcrDetectorProcessor implements MLAnalyzer.MLTransactor<MLText.Bloc
     @Override
     public void destroy() {
         // Callback method used to release resources when the detection ends.
+
     }
 
 }

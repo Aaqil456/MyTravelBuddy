@@ -1,15 +1,11 @@
 package com.example.mytravelbuddy.ui.home;
 
+import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
-import android.os.Build;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,44 +13,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultCaller;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.mytravelbuddy.MainActivity;
 import com.example.mytravelbuddy.R;
 import com.example.mytravelbuddy.databinding.FragmentHomeBinding;
 import com.google.android.material.textfield.TextInputEditText;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
-import com.huawei.hms.mlsdk.MLAnalyzerFactory;
 import com.huawei.hms.mlsdk.common.MLApplication;
 import com.huawei.hms.mlsdk.common.MLException;
-import com.huawei.hms.mlsdk.common.MLFrame;
-import com.huawei.hms.mlsdk.text.MLLocalTextSetting;
-import com.huawei.hms.mlsdk.text.MLRemoteTextSetting;
-import com.huawei.hms.mlsdk.text.MLText;
-import com.huawei.hms.mlsdk.text.MLTextAnalyzer;
 import com.huawei.hms.mlsdk.translate.MLTranslatorFactory;
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslateSetting;
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslator;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import com.huawei.hms.kit.awareness.Awareness;
+import com.huawei.hms.kit.awareness.status.weather.Situation;
+// Import the weather capture-related classes.
+import com.huawei.hms.kit.awareness.capture.WeatherStatusResponse;
+import com.huawei.hms.kit.awareness.status.WeatherStatus;
+import com.huawei.hms.kit.awareness.status.weather.WeatherSituation;
 
 public class HomeFragment extends Fragment {
 
 
     private FragmentHomeBinding binding;
-    private TextView outputtext;
+    private TextView outputtext,Weathertext;
     private TextInputEditText inputtext1;
     private Button translate,btn_language;
     ImageButton btn_speech;
@@ -67,10 +55,13 @@ public class HomeFragment extends Fragment {
     private static final String TAG = HomeFragment.class.getSimpleName();
 
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+
 
         //Language Kit
         btn_language=root.findViewById(R.id.btn_language);
@@ -147,12 +138,65 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 translateFunction(inputtext1.getText().toString());
+
             }
         });
 
 
+        Weathertext=root.findViewById(R.id.Weathertext);
+        getWeather(root.getContext());
 
         return root;
+    }
+
+    private void getWeather(Context context) {
+
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            Weathertext.setText("Permission Granted");
+            Awareness.getCaptureClient(context).getWeatherByDevice()
+                    // Callback listener for execution success.
+                    .addOnSuccessListener(new OnSuccessListener<WeatherStatusResponse>() {
+                        @Override
+                        public void onSuccess(WeatherStatusResponse weatherStatusResponse) {
+                            WeatherStatus weatherStatus = weatherStatusResponse.getWeatherStatus();
+                            WeatherSituation weatherSituation = weatherStatus.getWeatherSituation();
+                            Situation situation = weatherSituation.getSituation();
+                            // For more weather information, please refer to the API Reference of Awareness Kit.
+                            String weatherInfoStr = "City:" + weatherSituation.getCity().getName() + "\n" +
+                                    "Weather id is " + situation.getWeatherId() + "\n" +
+                                    "CN Weather id is " + situation.getCnWeatherId() + "\n" +
+                                    "Temperature is " + situation.getTemperatureC() + "℃" +
+                                    "," + situation.getTemperatureF() + "℉" + "\n" +
+                                    "Wind speed is " + situation.getWindSpeed() + "km/h" + "\n" +
+                                    "Wind direction is " + situation.getWindDir() + "\n" +
+                                    "Humidity is " + situation.getHumidity() + "%";
+
+                            Toast.makeText(context, weatherInfoStr, Toast.LENGTH_LONG).show();
+                            Weathertext.setText(weatherInfoStr);
+                        }
+                    })
+                    // Callback listener for execution failure.
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(Exception e) {
+                            Toast.makeText(getContext(), "get weather failed", Toast.LENGTH_LONG).show();
+                            e.printStackTrace();
+
+                        }
+                    });
+            return;
+        }
+        else{
+
+            Weathertext.setText("Permission Not Granted");
+            }
+
+    }
+
+    public static int getMessage(int statusCode){
+
+
+        return statusCode;
     }
 
 
