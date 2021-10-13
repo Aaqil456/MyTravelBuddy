@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.mytravelbuddy"
-        minSdkVersion 28
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -67,4 +67,8 @@ dependencies {
     implementation 'com.huawei.hms:ml-computer-vision-ocr-jk-model:2.0.5.301'
     // Import the Chinese and English model package.
     implementation 'com.huawei.hms:ml-computer-vision-ocr-cn-model:2.0.5.301'
+
+
+
+
 }

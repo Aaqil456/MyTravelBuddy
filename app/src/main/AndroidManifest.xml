@@ -38,7 +38,7 @@
 
         <activity android:name=".ui.Map_Activity" />
         <activity android:name=".LocationBroadcastReceiver" />
-
+        <activity android:name=".ui.camera_translate"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
