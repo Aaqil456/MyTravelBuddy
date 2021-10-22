@@ -15,28 +15,27 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
-
 import com.example.mytravelbuddy.R;
 import com.example.mytravelbuddy.databinding.FragmentHomeBinding;
 import com.google.android.material.textfield.TextInputEditText;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
+import com.huawei.hms.kit.awareness.Awareness;
+import com.huawei.hms.kit.awareness.capture.WeatherStatusResponse;
+import com.huawei.hms.kit.awareness.status.WeatherStatus;
+import com.huawei.hms.kit.awareness.status.weather.Situation;
+import com.huawei.hms.kit.awareness.status.weather.WeatherSituation;
 import com.huawei.hms.mlsdk.common.MLApplication;
 import com.huawei.hms.mlsdk.common.MLException;
 import com.huawei.hms.mlsdk.translate.MLTranslatorFactory;
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslateSetting;
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslator;
-import com.huawei.hms.kit.awareness.Awareness;
-import com.huawei.hms.kit.awareness.status.weather.Situation;
+
 // Import the weather capture-related classes.
-import com.huawei.hms.kit.awareness.capture.WeatherStatusResponse;
-import com.huawei.hms.kit.awareness.status.WeatherStatus;
-import com.huawei.hms.kit.awareness.status.weather.WeatherSituation;
 
 public class HomeFragment extends Fragment {
 
@@ -52,6 +51,7 @@ public class HomeFragment extends Fragment {
     public String texttoSpeechLanguage;
     String[]listItems = {"Malay", "Traditional Chinese", "Japanese", "Korean", "Tamil","German","Spanish","Indonesian","Russian","Thai","Vietnamese"};
     String[]languageselected = {"ms", "zh", "ja", "ko", "ta","de","es","id","ru","th","vi"};
+    String[]weatherInfoStr;
     private static final String TAG = HomeFragment.class.getSimpleName();
 
 
@@ -143,7 +143,7 @@ public class HomeFragment extends Fragment {
         });
 
 
-        Weathertext=root.findViewById(R.id.Weathertext);
+//        Weathertext=root.findViewById(R.id.Weathertext);
         getWeather(root.getContext());
 
         return root;
@@ -152,7 +152,6 @@ public class HomeFragment extends Fragment {
     private void getWeather(Context context) {
 
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            Weathertext.setText("Permission Granted");
             Awareness.getCaptureClient(context).getWeatherByDevice()
                     // Callback listener for execution success.
                     .addOnSuccessListener(new OnSuccessListener<WeatherStatusResponse>() {
@@ -161,18 +160,15 @@ public class HomeFragment extends Fragment {
                             WeatherStatus weatherStatus = weatherStatusResponse.getWeatherStatus();
                             WeatherSituation weatherSituation = weatherStatus.getWeatherSituation();
                             Situation situation = weatherSituation.getSituation();
-                            // For more weather information, please refer to the API Reference of Awareness Kit.
-                            String weatherInfoStr = "City:" + weatherSituation.getCity().getName() + "\n" +
-                                    "Weather id is " + situation.getWeatherId() + "\n" +
-                                    "CN Weather id is " + situation.getCnWeatherId() + "\n" +
-                                    "Temperature is " + situation.getTemperatureC() + "℃" +
-                                    "," + situation.getTemperatureF() + "℉" + "\n" +
-                                    "Wind speed is " + situation.getWindSpeed() + "km/h" + "\n" +
-                                    "Wind direction is " + situation.getWindDir() + "\n" +
-                                    "Humidity is " + situation.getHumidity() + "%";
 
-                            Toast.makeText(context, weatherInfoStr, Toast.LENGTH_LONG).show();
-                            Weathertext.setText(weatherInfoStr);
+                            weatherInfoStr= new String[]{weatherSituation.getCity().getName(),
+                                    String.valueOf(situation.getTemperatureC()),
+                                    String.valueOf(situation.getTemperatureF()),
+                                    String.valueOf(situation.getWindSpeed()),
+                                    situation.getHumidity(),
+                                    String.valueOf(situation.getUpdateTime()),
+                            };
+                            Toast.makeText(getContext(), weatherInfoStr[0], Toast.LENGTH_SHORT).show();
                         }
                     })
                     // Callback listener for execution failure.
@@ -180,7 +176,7 @@ public class HomeFragment extends Fragment {
                         @Override
                         public void onFailure(Exception e) {
                             Toast.makeText(getContext(), "get weather failed", Toast.LENGTH_LONG).show();
-                            e.printStackTrace();
+
 
                         }
                     });

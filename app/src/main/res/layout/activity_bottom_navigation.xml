@@ -46,6 +46,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:backgroundTint="@color/purple_200"
+        app:tint="@color/white"
         android:src="@drawable/ic_baseline_photo_camera_24"
         app:layout_anchor="@id/bottomAppBar" />
 
