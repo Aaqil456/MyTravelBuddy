@@ -5,7 +5,6 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.SurfaceView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,31 +15,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.mytravelbuddy.ui.OcrDetectorProcessor;
-import com.example.mytravelbuddy.ui.camera_translate;
 import com.example.mytravelbuddy.ui.home.HomeFragment;
 import com.example.mytravelbuddy.ui.map.Map_search;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
-import com.huawei.hms.mlplugin.asr.MLAsrCaptureActivity;
-import com.huawei.hms.mlplugin.asr.MLAsrCaptureConstants;
-import com.huawei.hms.mlsdk.asr.MLAsrConstants;
-import com.huawei.hms.mlsdk.asr.MLAsrRecognizer;
-import com.huawei.hms.mlsdk.common.LensEngine;
 import com.huawei.hms.mlsdk.common.MLApplication;
 import com.huawei.hms.mlsdk.text.MLTextAnalyzer;
 import android.Manifest;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.util.Log;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cam=new Intent(MainActivity.this, camera_translate.class);
-                startActivity(cam);
+//                Intent cam=new Intent(MainActivity.this, camera_translate.class);
+//                startActivity(cam);
 
 
             }
