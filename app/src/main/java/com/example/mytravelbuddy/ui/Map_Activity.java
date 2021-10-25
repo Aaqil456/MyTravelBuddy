@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.mytravelbuddy.R;
+import com.example.mytravelbuddy.RequestLocationUpdatesWithCallbackActivity;
 import com.huawei.hms.maps.HuaweiMap;
 import com.huawei.hms.maps.HuaweiMapOptions;
 import com.huawei.hms.maps.MapView;
@@ -33,6 +34,7 @@ public class Map_Activity extends AppCompatActivity implements OnMapReadyCallbac
     private static final LatLng lat=new LatLng(31.294,32.678);
     private Marker mMarker;
     private Circle mCircle;
+    private Double Latitude,Longitude;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,8 +79,9 @@ public class Map_Activity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(HuaweiMap map){
          hMap = map;
 
-
-
+        RequestLocationUpdatesWithCallbackActivity requestLocation=new RequestLocationUpdatesWithCallbackActivity();
+        Latitude=requestLocation.latitude;
+        Longitude=requestLocation.longitude;
         // Enable the my-location layer.
         hMap.setMyLocationEnabled(true);
         // Enable the my-location icon.

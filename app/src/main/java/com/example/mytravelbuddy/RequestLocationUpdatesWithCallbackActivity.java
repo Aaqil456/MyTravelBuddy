@@ -17,9 +17,11 @@ package com.example.mytravelbuddy;
 
 import java.util.List;
 
+import com.example.mytravelbuddy.ui.Map_Activity;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
+
 import com.huawei.hms.common.ApiException;
 import com.huawei.hms.common.ResolvableApiException;
 import com.huawei.hms.location.FusedLocationProviderClient;
@@ -34,6 +36,7 @@ import com.huawei.hms.location.LocationSettingsStatusCodes;
 import com.huawei.hms.location.SettingsClient;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -55,6 +58,7 @@ public class RequestLocationUpdatesWithCallbackActivity extends Activity impleme
     LocationRequest mLocationRequest;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private SettingsClient mSettingsClient;
+    public Double latitude,longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,7 @@ public class RequestLocationUpdatesWithCallbackActivity extends Activity impleme
         // Button click listeners
         findViewById(R.id.location_requestLocationUpdatesWithCallback).setOnClickListener(this);
         findViewById(R.id.location_removeLocationUpdatesWithCallback).setOnClickListener(this);
+        findViewById(R.id.nextButton).setOnClickListener(this);
 //        addLogFragment();
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         mSettingsClient = LocationServices.getSettingsClient(this);
@@ -83,6 +88,8 @@ public class RequestLocationUpdatesWithCallbackActivity extends Activity impleme
                                 Toast.makeText(RequestLocationUpdatesWithCallbackActivity.this,
                                         "onLocationResult location[Longitude,Latitude,Accuracy]:" + location.getLongitude()
                                                 + "," + location.getLatitude() + "," + location.getAccuracy(), Toast.LENGTH_LONG).show();
+                                latitude=location.getLatitude();
+                                longitude=location.getLongitude();
                             }
                         }
                     }
@@ -195,6 +202,11 @@ public class RequestLocationUpdatesWithCallbackActivity extends Activity impleme
                 case R.id.location_removeLocationUpdatesWithCallback:
                     removeLocationUpdatesWithCallback();
                     break;
+                case R.id.nextButton:
+                    startActivity(new Intent(this, Map_Activity.class));
+
+                    break;
+
                 default:
                     break;
             }

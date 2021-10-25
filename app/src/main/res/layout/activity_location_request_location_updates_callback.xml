@@ -36,6 +36,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="removeLocationUpdates with callback" />
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="go to map" />
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>
