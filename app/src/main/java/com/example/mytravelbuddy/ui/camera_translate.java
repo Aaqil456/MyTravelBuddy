@@ -46,7 +46,7 @@ public class camera_translate extends AppCompatActivity {
     MLTextAnalyzer analyzer;
     private int lensType = LensEngine.BACK_LENS;
     private LensEnginePreview mPreview;
-    private TextView tv,tvFrom,tvTo;
+    private TextView tv,tvFrom,tvTo,tvcamerastatus;
     int languagesTo,languagesFrom;
     ImageButton pause;
     String LanguageSelectedFrom="ko";
@@ -63,6 +63,7 @@ public class camera_translate extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.textView);
         tvFrom=findViewById(R.id.tvFrom);
         tvTo=findViewById(R.id.tvTo);
+        tvcamerastatus=findViewById(R.id.tvcamerastatus);
         pause=findViewById(R.id.pause_btn);
 
         //Initialization
@@ -106,6 +107,7 @@ public class camera_translate extends AppCompatActivity {
                         onPause();
                         pause.setImageResource(R.drawable.ic_baseline_pause_circle_24);
                         Toast.makeText(camera_translate.this, "The Preview Is Play ", Toast.LENGTH_SHORT).show();
+                        tvcamerastatus.setText("The Camera Is Pause");
                         Status="play";
 
                         break;
@@ -113,6 +115,7 @@ public class camera_translate extends AppCompatActivity {
                         startLensEngine();
                         pause.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
                         Toast.makeText(camera_translate.this, "The Preview Is Pause ", Toast.LENGTH_SHORT).show();
+                        tvcamerastatus.setText("The Camera Is Play");
                         Status="pause";
 
                         break;

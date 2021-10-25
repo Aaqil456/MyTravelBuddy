@@ -1,5 +1,10 @@
 package com.example.mytravelbuddy.ui.home;
 
+import static com.example.mytravelbuddy.R.mipmap.ic_cloudy;
+import static com.example.mytravelbuddy.R.mipmap.ic_heavyrain;
+import static com.example.mytravelbuddy.R.mipmap.ic_sun;
+import static com.example.mytravelbuddy.R.mipmap.ic_thunder;
+
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -13,11 +18,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+
 import com.example.mytravelbuddy.R;
 import com.example.mytravelbuddy.databinding.FragmentHomeBinding;
 import com.google.android.material.textfield.TextInputEditText;
@@ -35,23 +44,30 @@ import com.huawei.hms.mlsdk.translate.MLTranslatorFactory;
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslateSetting;
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslator;
 
+import java.text.SimpleDateFormat;
+
 // Import the weather capture-related classes.
 
 public class HomeFragment extends Fragment {
 
 
     private FragmentHomeBinding binding;
-    private TextView outputtext,Weathertext;
+    private TextView outputtext;
+    TextView tv_location,tv_date,tv_temp,tv_windspeed,tv_weatherstatus,Weathertext;
     private TextInputEditText inputtext1;
+    ConstraintLayout weather_container,Appheader;
     private Button translate,btn_language;
+    ImageButton btn_weather;
     ImageButton btn_speech;
-    private String language;
-    int checkedItem;
+    ImageView img_weather;
+    public String language,weatherclick="Closed";
+    int checkedItem,weatherstatus=0;
     public String texttoSpeech;
     public String texttoSpeechLanguage;
     String[]listItems = {"Malay", "Traditional Chinese", "Japanese", "Korean", "Tamil","German","Spanish","Indonesian","Russian","Thai","Vietnamese"};
     String[]languageselected = {"ms", "zh", "ja", "ko", "ta","de","es","id","ru","th","vi"};
     String[]weatherInfoStr;
+    SimpleDateFormat simpleDateFormat;
     private static final String TAG = HomeFragment.class.getSimpleName();
 
 
@@ -60,6 +76,14 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        weather_container=root.findViewById(R.id.weather_container);
+        weather_container.setVisibility(View.GONE);
+        tv_location=root.findViewById(R.id.tv_location);
+        tv_date=root.findViewById(R.id.tv_date);
+        tv_temp=root.findViewById(R.id.tv_temp);
+        tv_windspeed=root.findViewById(R.id.tv_windspeed);
+        tv_weatherstatus=root.findViewById(R.id.tv_weatherstatus);
+        img_weather=root.findViewById(R.id.img_weather);
 
 
 
@@ -142,8 +166,27 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //Setup Weather
+        btn_weather=root.findViewById(R.id.btn_weather);
+        Appheader=root.findViewById(R.id.Appheader);
+        btn_weather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (weatherclick) {
 
-//        Weathertext=root.findViewById(R.id.Weathertext);
+                    case "Open":
+                        weather_container.setVisibility(View.GONE);
+                        Appheader.setBackgroundResource(R.color.purple_200);
+                        weatherclick = "Closed";
+                    break;
+
+                    case "Closed":
+                        weather_container.setVisibility(View.VISIBLE);
+                        Appheader.setBackgroundResource(R.drawable.gradient_sunny);
+                        weatherclick = "Open";
+                }
+            }
+        });
         getWeather(root.getContext());
 
         return root;
@@ -161,13 +204,57 @@ public class HomeFragment extends Fragment {
                             WeatherSituation weatherSituation = weatherStatus.getWeatherSituation();
                             Situation situation = weatherSituation.getSituation();
 
+                            //Check Weather Status
+                            weatherstatus=situation.getWeatherId();
+                            if(weatherclick=="Open") {
+                                //Sunny
+                                if (weatherstatus >= 0 || weatherstatus <= 5) {
+                                    Appheader.setBackgroundResource(R.drawable.gradient_sunny);
+                                    tv_weatherstatus.setText("Sunny");
+                                    img_weather.setBackgroundResource(ic_sun);
+
+                                }
+                                //Cloudy
+                                else if (weatherstatus >= 5 || weatherstatus <= 13) {
+                                    Appheader.setBackgroundResource(R.drawable.gradient_cloudy);
+                                    tv_weatherstatus.setText("Cloudy");
+                                    img_weather.setBackgroundResource(ic_cloudy);
+                                }
+                                //Rain
+                                else if (weatherstatus >= 14 || weatherstatus <= 20) {
+                                    Appheader.setBackgroundResource(R.drawable.gradient_rain);
+                                    tv_weatherstatus.setText("Heavy Rain");
+                                    img_weather.setBackgroundResource(ic_heavyrain);
+                                }
+                                //Others
+                                else if (weatherstatus >= 21) {
+                                    Appheader.setBackgroundResource(R.drawable.gradient_thunderstorm);
+                                    tv_weatherstatus.setText("Thunder Storm");
+                                    img_weather.setBackgroundResource(ic_thunder);
+                                }
+                            }
+                            else {
+                                Appheader.setBackgroundResource(R.color.purple_200);
+                            }
                             weatherInfoStr= new String[]{weatherSituation.getCity().getName(),
                                     String.valueOf(situation.getTemperatureC()),
                                     String.valueOf(situation.getTemperatureF()),
                                     String.valueOf(situation.getWindSpeed()),
                                     situation.getHumidity(),
                                     String.valueOf(situation.getUpdateTime()),
+
                             };
+
+                            //tv_location,tv_date,tv_temp,tv_windspeed,tv_humid
+                            tv_location.setText(weatherInfoStr[0]);
+                            tv_temp.setText(weatherInfoStr[1]+"℃ /"+weatherInfoStr[2]+"℉");
+                            tv_windspeed.setText("WindSpeed: "+weatherInfoStr[3]+" km/h"+"\t"+" Humidity: "+weatherInfoStr[4]+"%");
+
+
+
+//                            tv_date.setText(localTime);
+                            simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"+"\n"+"HH:mm:ss aaa z");
+                            tv_date.setText(simpleDateFormat.format(situation.getUpdateTime()));
                             Toast.makeText(getContext(), weatherInfoStr[0], Toast.LENGTH_SHORT).show();
                         }
                     })
