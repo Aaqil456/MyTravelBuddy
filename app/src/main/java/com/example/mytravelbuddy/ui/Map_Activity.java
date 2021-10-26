@@ -80,8 +80,7 @@ public class Map_Activity extends AppCompatActivity implements OnMapReadyCallbac
          hMap = map;
 
         RequestLocationUpdatesWithCallbackActivity requestLocation=new RequestLocationUpdatesWithCallbackActivity();
-        Latitude=requestLocation.latitude;
-        Longitude=requestLocation.longitude;
+
         // Enable the my-location layer.
         hMap.setMyLocationEnabled(true);
         // Enable the my-location icon.
@@ -91,7 +90,7 @@ public class Map_Activity extends AppCompatActivity implements OnMapReadyCallbac
 
 
             MarkerOptions options = new MarkerOptions()
-                    .position(new LatLng(48.893478, 2.334595))
+                    .position(new LatLng(requestLocation.getLat(), requestLocation.getLong()))
                     .title("Hello Huawei Map")
                     .snippet("This is a snippet!")
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_baseline_arrow_circle_up_24));
