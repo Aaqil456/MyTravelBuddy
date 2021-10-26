@@ -95,6 +95,7 @@ public class RequestLocationUpdatesWithCallbackActivity extends Activity impleme
                     }
                 }
 
+
                 @Override
                 public void onLocationAvailability(LocationAvailability locationAvailability) {
                     if (locationAvailability != null) {
@@ -104,6 +105,14 @@ public class RequestLocationUpdatesWithCallbackActivity extends Activity impleme
                 }
             };
         }
+    }
+
+    public Double getLat(){
+        return latitude;
+    }
+
+    public Double getLong(){
+        return longitude;
     }
 
     /**
