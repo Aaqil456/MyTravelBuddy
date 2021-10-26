@@ -31,10 +31,14 @@ public class TTS {
         String country="US";
         Voice v=new Voice(name,new Locale("en","US"),400,200,true,a);
         switch (Language){
+            case "en":
+                 name="en-us-x-sfg#female_2-local";
+                 language="en";
+                 country="US";
+                break;
 
-            case "ms":
 
-            case "id":
+            case "ms": case "id":
                 //setup new Language
                 name="id-id-x-dfz#female_1-local";
                 language="in";

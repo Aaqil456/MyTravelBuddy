@@ -47,11 +47,11 @@ public class camera_translate extends AppCompatActivity {
     private int lensType = LensEngine.BACK_LENS;
     private LensEnginePreview mPreview;
     private TextView tv,tvFrom,tvTo,tvcamerastatus;
-    int languagesTo,languagesFrom;
+    int languagesFrom;
     ImageButton pause;
     String LanguageSelectedFrom="ko";
     String[]languageselected = {"ko", "zh", "ja", "ms", "ta","de","es","id","ru","th","vi"};
-    public String LanguageFrom = null;
+    public String LanguageFrom = "ko";
     public String Status="pause";
     List<String> list = new ArrayList<String>();
     Spinner btnlanguagefrom,btnlanguageto;
@@ -93,9 +93,6 @@ public class camera_translate extends AppCompatActivity {
         //set the ArrayAdapter to the spinner
         btnlanguagefrom.setAdapter(dataAdapter);
         btnlanguagefrom.setPrompt("Select a Language!");
-
-
-        Toast.makeText(this,LanguageSelectedFrom, Toast.LENGTH_SHORT).show();
         //attach the listener to the spinner
         btnlanguagefrom.setOnItemSelectedListener(new MyOnItemSelectedListener());
 
@@ -135,22 +132,19 @@ public class camera_translate extends AppCompatActivity {
                 //Language From spinner
                 case R.id.btnlanguagefrom:
                     //make sure the country was already selected during the onCreate
-                    if(LanguageFrom != null){
+
                         languagesFrom=list.indexOf(selectedItem);
                         LanguageSelectedFrom=languageselected[languagesFrom];
-                        startLensEngine();
                         Toast.makeText(parent.getContext(), "Language From: " + LanguageSelectedFrom, Toast.LENGTH_SHORT).show();
+                        startLensEngine();
+                        LanguageFrom = selectedItem;
 
-                    }
-
-                    LanguageFrom = selectedItem;
-                    break;
             }
 
         }
 
         public void onNothingSelected(AdapterView<?> parent) {
-            // Do nothing.
+            Toast.makeText(parent.getContext(), "Nothing" + LanguageSelectedFrom, Toast.LENGTH_SHORT).show();
         }
 
     }
