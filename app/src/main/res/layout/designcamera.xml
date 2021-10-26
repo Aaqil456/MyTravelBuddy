@@ -23,19 +23,17 @@
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="16dp">
 
-            <Button
+            <Spinner
                 android:id="@+id/btnlanguagefrom"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:backgroundTint="@color/purple_200"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:text="Select Language"
-                android:textSize="10dp"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:textSize="14dp"
+                android:gravity="left"
+                android:textColor="#FF0000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-               ></Button>
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"></Spinner>
 
             <ImageButton
                 android:id="@+id/pause_btn"
@@ -66,7 +64,7 @@
     <com.example.mytravelbuddy.ui.LensEnginePreview
         android:id="@+id/lensengine_preview"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="300dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -98,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
-                android:text="Detected Text"
+                android:text="Image Text"
                 android:textColor="@color/purple_200"
                 android:textSize="10dp"
                 app:layout_constraintStart_toStartOf="parent"

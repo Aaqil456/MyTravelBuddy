@@ -2,12 +2,15 @@ package com.example.mytravelbuddy.ui.home;
 
 import static com.example.mytravelbuddy.R.mipmap.ic_cloudy;
 import static com.example.mytravelbuddy.R.mipmap.ic_heavyrain;
+import static com.example.mytravelbuddy.R.mipmap.ic_night;
 import static com.example.mytravelbuddy.R.mipmap.ic_sun;
 import static com.example.mytravelbuddy.R.mipmap.ic_thunder;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.UtteranceProgressListener;
 import android.view.LayoutInflater;
@@ -46,7 +49,9 @@ import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslator;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 // Import the weather capture-related classes.
 
@@ -54,24 +59,23 @@ public class HomeFragment extends Fragment {
 
 
     private FragmentHomeBinding binding;
-    public TextView outputtext,outputtext2,tv_currentlanguage,tv_currentlanguage2,tv_translated,tv_translated2;
-    TextView tv_location,tv_date,tv_temp,tv_windspeed,tv_weatherstatus,Weathertext;
+    TextView tv_location,tv_date,tv_temp,tv_windspeed,tv_weatherstatus,Weathertext,outputtext,outputtext2,tv_currentlanguage,tv_currentlanguage2,tv_translated,tv_translated2;
     private TextInputEditText inputtext1;
     ConstraintLayout weather_container,Appheader;
     private Button translate;
-    Spinner spinner_languagefrom,spinner_languageto;
-    ImageButton btn_weather;
-    ImageButton btn_speech,btn_speech2;
+    Spinner spinner_languagefrom,spinner_languageto,spinner_languagephoto;
+    ImageButton btn_weather,btn_speech,btn_speech2,btn_upload;
     ImageView img_weather;
-    public String language="en",languages2="en",weatherclick="Closed";
-    int weatherstatus=0,languagesFrom=0,languagesTo=0;
-    public String texttoSpeech,texttoSpeech2;
-    public String texttoSpeechLanguage,texttoSpeechLanguage2;
+    public String language="en",languages2="en",languagesphoto="en",weatherclick="Closed";
+    int weatherstatus=0,languagesFrom=0,languagesTo=0,languagesPhoto=0,SELECT_PICTURE = 200;
+    public String texttoSpeech,texttoSpeech2,texttoSpeechPhoto,texttoSpeechLanguage,texttoSpeechLanguage2,texttoSpeechLanguagePhoto,Document_img1="";
     List<String> list = new ArrayList<String>();
     String[]languagelist = {"en","ms", "zh", "ja", "ko", "ta","de","es","id","ru","th","vi"};
     String[]translatedtext={"Translate","Terjemah","翻譯","翻訳","번역하다","மொழிபெயர்","Übersetzen","Traducir","Menerjemahkan","Перевести","แปลภาษา","Phiên dịch"};
     String[]weatherInfoStr;
     SimpleDateFormat simpleDateFormat;
+    ImageView IVPreviewImage;
+    String currentTime="pm";
     private static final String TAG = HomeFragment.class.getSimpleName();
 
 
@@ -96,6 +100,7 @@ public class HomeFragment extends Fragment {
         //Language Kit
         spinner_languagefrom=root.findViewById(R.id.spinner_languagefrom);
         spinner_languageto=root.findViewById(R.id.spinner_languageto);
+        spinner_languagephoto=root.findViewById(R.id.spinner_languagephoto);
 
         //Populate List
         list.add("English");
@@ -227,7 +232,7 @@ public class HomeFragment extends Fragment {
                     case "Closed":
                         weather_container.setVisibility(View.VISIBLE);
                         Appheader.setBackgroundResource(R.color.purple_200);
-                        updateAppBar(weatherstatus);
+                        updateAppBar(weatherstatus,currentTime);
                         weatherclick = "Open";
                 }
             }
@@ -236,6 +241,42 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
+//IVPreviewImage
+
+//
+//        // create an instance of the
+//        // intent of the type image
+//        Intent i = new Intent();
+//        i.setType("image/*");
+//        i.setAction(Intent.ACTION_GET_CONTENT);
+//
+//        // pass the constant to compare it
+//        // with the returned requestCode
+//        startActivityForResult(Intent.createChooser(i, "Select Picture"),1);
+//    }
+////    // this function is triggered when user
+////    // selects the image from the imageChooser
+//    public void startActivityForResult (int requestCode, int resultCode, Intent data) {
+//        super.startActivityForResult (requestCode, resultCode, data);
+//
+//        if (resultCode == 200) {
+//            Toast.makeText(getContext(), "200", Toast.LENGTH_SHORT).show();
+//            // compare the resultCode with the
+//            // SELECT_PICTURE constant
+//            if (requestCode == SELECT_PICTURE) {
+//                Toast.makeText(getContext(), "Permission Selected", Toast.LENGTH_SHORT).show();
+//                // Get the url of the image from data
+//                Uri selectedImageUri = data.getData();
+//                if (null != selectedImageUri) {
+//                    // update the preview image in the layout
+//                    IVPreviewImage.setImageURI(selectedImageUri);
+//                    Toast.makeText(getContext(), "Image Selected", Toast.LENGTH_SHORT).show();
+//
+//                }
+//            }
+//        }
+
+
     public class MyOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(@NonNull AdapterView<?> parent, View view, int pos, long id) {
@@ -271,6 +312,14 @@ public class HomeFragment extends Fragment {
                     }
                     break;
 
+
+                case R.id.spinner_languagephoto:
+                    languagesPhoto=list.indexOf(selectedItem);
+                    languagesphoto=languagelist[languagesTo];
+                    texttoSpeechLanguagePhoto=selectedItem;
+
+
+                    break;
             }
 
         }
@@ -300,7 +349,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onSuccess(String text) {
                 outputtext2.setText(text);
-                Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
                 texttoSpeech2=text;
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -336,6 +384,9 @@ public class HomeFragment extends Fragment {
                             Situation situation = weatherSituation.getSituation();
 
                             //Check Weather Status
+                            simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"+"\n"+"HH:mm:ss aaa z", Locale.getDefault());
+                            tv_date.setText(simpleDateFormat.format(new Date()));
+                            currentTime = new SimpleDateFormat("a", Locale.getDefault()).format(new Date());
                             weatherstatus=situation.getWeatherId();
 
 
@@ -353,8 +404,7 @@ public class HomeFragment extends Fragment {
                             tv_temp.setText(weatherInfoStr[1]+"℃ /"+weatherInfoStr[2]+"℉");
                             tv_windspeed.setText("WindSpeed: "+weatherInfoStr[3]+" km/h"+"\t"+" Humidity: "+weatherInfoStr[4]+"%");
 //                          tv_date.setText(localTime);
-                            simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"+"\n"+"HH:mm:ss aaa z");
-                            tv_date.setText(simpleDateFormat.format(situation.getUpdateTime()));
+
 
                         }
                     })
@@ -376,13 +426,28 @@ public class HomeFragment extends Fragment {
 
     }
 
-    public void updateAppBar(int weatherstatus){
+    public void updateAppBar(int weatherstatus,String currentTimes){
 
            //Sunny
            if (weatherstatus >= 0 || weatherstatus <= 5) {
-               Appheader.setBackgroundResource(R.drawable.gradient_sunny);
-               tv_weatherstatus.setText("Sunny");
-               img_weather.setBackgroundResource(ic_sun);
+//               Appheader.setBackgroundResource(R.drawable.gradient_sunny);
+//               tv_weatherstatus.setText("Sunny");
+//               img_weather.setBackgroundResource(ic_sun);
+               Toast.makeText(getContext(), currentTimes, Toast.LENGTH_LONG).show();
+
+               switch (currentTimes){
+                   case "am":
+                       Appheader.setBackgroundResource(R.drawable.gradient_sunny);
+                       tv_weatherstatus.setText("Sunny");
+                       img_weather.setBackgroundResource(ic_sun);
+                       break;
+
+                   case "pm":
+                       Appheader.setBackgroundResource(R.drawable.gradient_mid);
+                       tv_weatherstatus.setText("Night");
+                       img_weather.setBackgroundResource(ic_night);
+                       break;
+               }
 
            }
            //Cloudy

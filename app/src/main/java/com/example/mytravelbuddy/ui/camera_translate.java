@@ -1,6 +1,8 @@
 package com.example.mytravelbuddy.ui;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -47,20 +50,20 @@ public class camera_translate extends AppCompatActivity {
     private int lensType = LensEngine.BACK_LENS;
     private LensEnginePreview mPreview;
     private TextView tv,tvFrom,tvTo,tvcamerastatus;
-    int languagesFrom;
+    int languagesFrom,checkedItem=0;
     ImageButton pause;
     String LanguageSelectedFrom="ko";
+    String[]listItems = {"Korean", "Traditional Chinese", "Japanese", "Malaysia", "Tamil","German","Spanish","Indonesian","Russian","Thai","Vietnamese"};
     String[]languageselected = {"ko", "zh", "ja", "ms", "ta","de","es","id","ru","th","vi"};
     public String LanguageFrom = "ko";
     public String Status="pause";
     List<String> list = new ArrayList<String>();
-    Spinner btnlanguagefrom,btnlanguageto;
+    Button btnlanguagefrom;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera);
         mPreview = findViewById(R.id.lensengine_preview);
-        tv = (TextView) findViewById(R.id.textView);
         tvFrom=findViewById(R.id.tvFrom);
         tvTo=findViewById(R.id.tvTo);
         tvcamerastatus=findViewById(R.id.tvcamerastatus);
@@ -74,27 +77,7 @@ public class camera_translate extends AppCompatActivity {
 
 
         btnlanguagefrom=findViewById(R.id.btnlanguagefrom);
-        //Array list of animals to display in the spinner
-        list.add("Korean");
-        list.add("Traditional Chinese");
-        list.add("Japanese");
-        list.add("Malay");
-        list.add("Tamil");
-        list.add("German");
-        list.add("Spanish");
-        list.add("Indonesian");
-        list.add("Thai");
-        list.add("Vietnamese");
-        //create an ArrayAdapter from the String Array
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, list);
-        //set the view for the Drop down list
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //set the ArrayAdapter to the spinner
-        btnlanguagefrom.setAdapter(dataAdapter);
-        btnlanguagefrom.setPrompt("Select a Language!");
-        //attach the listener to the spinner
-        btnlanguagefrom.setOnItemSelectedListener(new MyOnItemSelectedListener());
+
 
         pause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,34 +102,41 @@ public class camera_translate extends AppCompatActivity {
 
             }}
         });
-    }
 
-    public class MyOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
+        btnlanguagefrom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        public void onItemSelected(@NonNull AdapterView<?> parent, View view, int pos, long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(camera_translate.this);
+                builder.setTitle("Choose Language");
 
-            String selectedItem = parent.getItemAtPosition(pos).toString();
-
-            //check which spinner triggered the listener
-            switch (parent.getId()) {
-                //Language From spinner
-                case R.id.btnlanguagefrom:
-                    //make sure the country was already selected during the onCreate
-
-                        languagesFrom=list.indexOf(selectedItem);
-                        LanguageSelectedFrom=languageselected[languagesFrom];
-                        Toast.makeText(parent.getContext(), "Language From: " + LanguageSelectedFrom, Toast.LENGTH_SHORT).show();
+                //this will checked the item when user open the dialog
+                builder.setSingleChoiceItems(listItems, checkedItem, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+//                        Toast.makeText(root.getContext(), "Position: " + which + " Value: " + listItems[which], Toast.LENGTH_LONG).show();
+                        LanguageSelectedFrom=languageselected[which];
+                        Toast.makeText(camera_translate.this, "Language From: " + LanguageSelectedFrom, Toast.LENGTH_SHORT).show();
                         startLensEngine();
-                        LanguageFrom = selectedItem;
+                        checkedItem = which;
+                        LanguageFrom = listItems[which];
+                        btnlanguagefrom.setText(listItems[which]);
 
+
+                    }
+                });
+
+                builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
-
-        }
-
-        public void onNothingSelected(AdapterView<?> parent) {
-            Toast.makeText(parent.getContext(), "Nothing" + LanguageSelectedFrom, Toast.LENGTH_SHORT).show();
-        }
-
+        });
     }
 
     private void createLensEngine() {
@@ -187,21 +177,21 @@ public class camera_translate extends AppCompatActivity {
         public void transactResult(MLAnalyzer.Result<MLText.Block> results) {
 
             SparseArray<MLText.Block> blocks = results.getAnalyseList();
-
-
-            for (int i = 0; i < blocks.size(); i++) {
-                List<MLText.TextLine> lines = blocks.get(i).getContents();
-                for (int j = 0; j < lines.size(); j++) {
-                    List<MLText.Word> elements = lines.get(j).getContents();
-                    for (int k = 0; k < elements.size(); k++) {
-                        tvFrom.setText( elements.get(k).getStringValue());
-                        translateFunction(elements.get(k).getStringValue());
+            String result="";
+                for (int i = 0; i < blocks.size(); i++) {
+                    List<MLText.TextLine> lines = blocks.get(i).getContents();
+                    for (int j = 0; j < lines.size(); j++) {
+                        List<MLText.Word> elements = lines.get(j).getContents();
+                        for (int k = 0; k < elements.size(); k++) {
+                                    result += elements.get(k).getStringValue() + " ";
+                        }
 
                     }
+                    result += " ";
+
                 }
-            }
-
-
+            translateFunction(result);
+            tvFrom.setText(result);
         }
 
         @Override
@@ -211,7 +201,7 @@ public class camera_translate extends AppCompatActivity {
 
     }
     //End Speech Output
-    private void translateFunction(final String inputtext) {
+    private void translateFunction(String inputtext) {
         MLApplication.getInstance().setApiKey(getResources().getString(R.string.api_key));
 
         // Create a text translator using custom parameter settings.
@@ -223,6 +213,7 @@ public class camera_translate extends AppCompatActivity {
 //                .setTargetLangCode(languageselected.toString())
                 .setTargetLangCode("en")
                 .create();
+//        tvFrom.setText(inputtext);
         MLRemoteTranslator mlRemoteTranslator = MLTranslatorFactory.getInstance().getRemoteTranslator(setting);
         // sourceText: text to be translated, with up to 5000 characters.
         final Task<String> task = mlRemoteTranslator.asyncTranslate(inputtext);
@@ -230,8 +221,6 @@ public class camera_translate extends AppCompatActivity {
             @Override
             public void onSuccess(String text) {
                 tvTo.setText(text);
-
-
                 Log.d(inputtext+"translated: ",text);
                 // Processing logic for recognition success.
             }
