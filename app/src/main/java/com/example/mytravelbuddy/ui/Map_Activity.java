@@ -12,12 +12,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.mytravelbuddy.R;
+import com.example.mytravelbuddy.RequestLocationUpdatesWithCallbackActivity;
 import com.huawei.hms.maps.HuaweiMap;
 import com.huawei.hms.maps.HuaweiMapOptions;
 import com.huawei.hms.maps.MapView;
 import com.huawei.hms.maps.MapsInitializer;
 import com.huawei.hms.maps.OnMapReadyCallback;
+import com.huawei.hms.maps.model.BitmapDescriptorFactory;
+import com.huawei.hms.maps.model.Circle;
+import com.huawei.hms.maps.model.LatLng;
 import com.huawei.hms.maps.model.Marker;
+import com.huawei.hms.maps.model.MarkerOptions;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.ACCESS_WIFI_STATE;
@@ -26,7 +31,10 @@ import static android.content.ContentValues.TAG;
 public class Map_Activity extends AppCompatActivity implements OnMapReadyCallback {
     private MapView mMapView;
     HuaweiMap hMap;
+    private static final LatLng lat=new LatLng(31.294,32.678);
     private Marker mMarker;
+    private Circle mCircle;
+    private Double Latitude,Longitude;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,6 +79,7 @@ public class Map_Activity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(HuaweiMap map){
          hMap = map;
 
+        RequestLocationUpdatesWithCallbackActivity requestLocation=new RequestLocationUpdatesWithCallbackActivity();
 
         // Enable the my-location layer.
         hMap.setMyLocationEnabled(true);
@@ -80,7 +89,16 @@ public class Map_Activity extends AppCompatActivity implements OnMapReadyCallbac
         hMap.getUiSettings().setCompassEnabled(true);
 
 
+            MarkerOptions options = new MarkerOptions()
+                    .position(new LatLng(requestLocation.getLat(), requestLocation.getLong()))
+                    .title("Hello Huawei Map")
+                    .snippet("This is a snippet!")
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_baseline_arrow_circle_up_24));
+            mMarker = hMap.addMarker(options);
+
+
     }
+
 
     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
 
@@ -96,6 +114,9 @@ public class Map_Activity extends AppCompatActivity implements OnMapReadyCallbac
 
         mMapView.onSaveInstanceState(mapViewBundle);
     }
+
+
+
 
     @Override
     protected void onStart() {

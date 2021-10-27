@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.mytravelbuddy.R;
+import com.example.mytravelbuddy.RequestLocationUpdatesWithCallbackActivity;
 import com.example.mytravelbuddy.databinding.FragmentMapsearchBinding;
-import com.example.mytravelbuddy.ui.Map_Activity;
 
 public class Map_search extends Fragment {
 
@@ -25,7 +25,7 @@ public class Map_search extends Fragment {
         TextView tv=root.findViewById(R.id.text_notifications);
         tv.setText("Map Fragments");
 
-        startActivity(new Intent(getActivity(), Map_Activity.class));
+        startActivity(new Intent(getActivity(), RequestLocationUpdatesWithCallbackActivity.class));
         return root;
     }
 
