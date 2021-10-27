@@ -25,7 +25,7 @@
 
             <Button
                 android:id="@+id/btnlanguagefrom"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/purple_200"
                 android:gravity="center"

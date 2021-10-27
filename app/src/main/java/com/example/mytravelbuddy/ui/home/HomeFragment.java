@@ -7,6 +7,7 @@ import static com.example.mytravelbuddy.R.mipmap.ic_sun;
 import static com.example.mytravelbuddy.R.mipmap.ic_thunder;
 
 import android.Manifest;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -64,17 +65,16 @@ public class HomeFragment extends Fragment {
     ConstraintLayout weather_container,Appheader;
     private Button translate;
     Spinner spinner_languagefrom,spinner_languageto,spinner_languagephoto;
-    ImageButton btn_weather,btn_speech,btn_speech2;
+    ImageButton btn_weather,btn_copy,btn_copy2,btn_speech2,btn_speech;
     ImageView img_weather;
     public String language="en",languages2="en",languagesphoto="en",weatherclick="Closed";
-    int weatherstatus=0,languagesFrom=0,languagesTo=0,languagesPhoto=0,SELECT_PICTURE = 200;
-    public String texttoSpeech,texttoSpeech2,texttoSpeechPhoto,texttoSpeechLanguage,texttoSpeechLanguage2,texttoSpeechLanguagePhoto,Document_img1="";
+    int weatherstatus=0,languagesFrom=0,languagesTo=0,languagesPhoto=0;
+    public String texttoSpeech,texttoSpeech2,texttoSpeechLanguage,texttoSpeechLanguage2,texttoSpeechLanguagePhoto;
     List<String> list = new ArrayList<String>();
     String[]languagelist = {"en","ms", "zh", "ja", "ko", "ta","de","es","id","ru","th","vi"};
     String[]translatedtext={"Translate","Terjemah","翻譯","翻訳","번역하다","மொழிபெயர்","Übersetzen","Traducir","Menerjemahkan","Перевести","แปลภาษา","Phiên dịch"};
     String[]weatherInfoStr;
     SimpleDateFormat simpleDateFormat;
-    ImageView IVPreviewImage;
     int currentTime;
     private static final String TAG = HomeFragment.class.getSimpleName();
 
@@ -94,6 +94,8 @@ public class HomeFragment extends Fragment {
         img_weather=root.findViewById(R.id.img_weather);
         tv_translated=root.findViewById(R.id.tv_translated);
         tv_translated2=root.findViewById(R.id.tv_translated2);
+        btn_copy=root.findViewById(R.id.btn_copy);
+        btn_copy2=root.findViewById(R.id.btn_copy2);
         getWeather(root.getContext());
 
 
@@ -130,15 +132,6 @@ public class HomeFragment extends Fragment {
         spinner_languageto.setAdapter(dataAdapter);
         spinner_languageto.setPrompt("Language To");
         spinner_languageto.setOnItemSelectedListener(new HomeFragment.MyOnItemSelectedListener());
-
-
-        //attach the listener to the spinner
-
-//        language=languageselected[which];
-//        btn_language.setText(listItems[which]);
-//        texttoSpeechLanguage=languageselected[which];
-//        checkedItem = which;
-
 
         //TranslationMethod
         inputtext1=root.findViewById(R.id.inputtext1);
@@ -212,6 +205,23 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //Copy to Clipboard
+        btn_copy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ClipboardManager cm = (ClipboardManager)getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                cm.setText(texttoSpeech);
+                Toast.makeText(getContext(), "Copied to clipboard", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btn_copy2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ClipboardManager cm = (ClipboardManager)getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                cm.setText(texttoSpeech2);
+                Toast.makeText(getContext(), "Copied to clipboard", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         //Setup Weather

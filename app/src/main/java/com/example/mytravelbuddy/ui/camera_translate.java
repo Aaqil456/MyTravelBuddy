@@ -50,12 +50,11 @@ public class camera_translate extends AppCompatActivity {
     private int lensType = LensEngine.BACK_LENS;
     private LensEnginePreview mPreview;
     private TextView tv,tvFrom,tvTo,tvcamerastatus;
-    int languagesFrom,checkedItem=0;
+    int checkedItem=0;
     ImageButton pause;
-    String LanguageSelectedFrom="en";
+    String LanguageSelectedFrom="ko";
     String[]listItems = {"English","Korean", "Traditional Chinese", "Japanese", "Malay", "Tamil","German","Spanish","Indonesian","Russian","Thai","Vietnamese"};
     String[]languageselected = {"en","ko", "zh", "ja", "ms", "ta","de","es","id","ru","th","vi"};
-    public String LanguageFrom = "en";
     public String Status="pause";
     List<String> list = new ArrayList<String>();
     Button btnlanguagefrom;
@@ -73,7 +72,7 @@ public class camera_translate extends AppCompatActivity {
         analyzer = new MLTextAnalyzer.Factory(camera_translate.this).setLocalOCRMode(MLLocalTextSetting.OCR_DETECT_MODE).setLanguage(LanguageSelectedFrom).create();
         analyzer.setTransactor(new OcrDetectorProcessor());
         createLensEngine();
-        startLensEngine();
+        startLensEngine(LanguageSelectedFrom);
 
 
         btnlanguagefrom=findViewById(R.id.btnlanguagefrom);
@@ -92,7 +91,7 @@ public class camera_translate extends AppCompatActivity {
 
                         break;
                     case "play":
-                        startLensEngine();
+                        startLensEngine(LanguageSelectedFrom);
                         pause.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
                         Toast.makeText(camera_translate.this, "The Preview Is Play ", Toast.LENGTH_SHORT).show();
                         tvcamerastatus.setText("The Camera Is Play");
@@ -116,10 +115,8 @@ public class camera_translate extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 //                        Toast.makeText(root.getContext(), "Position: " + which + " Value: " + listItems[which], Toast.LENGTH_LONG).show();
                         LanguageSelectedFrom=languageselected[which];
-//                        Toast.makeText(camera_translate.this, "Language From: " + LanguageSelectedFrom, Toast.LENGTH_SHORT).show();
-                        startLensEngine();
+                        startLensEngine(LanguageSelectedFrom);
                         checkedItem = which;
-                        LanguageFrom = listItems[which];
                         btnlanguagefrom.setText(listItems[which]);
 
 
@@ -149,17 +146,17 @@ public class camera_translate extends AppCompatActivity {
                 .create();
     }
 
-    private void startLensEngine() {
+    private void startLensEngine(String LanguageSelectedFroms) {
         //Translation Kit
         // Method 2: Use the customized parameter MLLocalTextSetting to configure the text analyzer on the device.
         MLLocalTextSetting setting = new MLLocalTextSetting.Factory()
                 .setOCRMode(MLLocalTextSetting.OCR_DETECT_MODE)
                 // Specify languages that can be recognized.
-                .setLanguage(LanguageSelectedFrom)
+                .setLanguage(LanguageSelectedFroms)
                 .create();
+        Toast.makeText(camera_translate.this, "Language From: " + LanguageSelectedFrom, Toast.LENGTH_SHORT).show();
+        Toast.makeText(camera_translate.this, "Language : " + LanguageSelectedFroms, Toast.LENGTH_SHORT).show();
         analyzer = MLAnalyzerFactory.getInstance().getLocalTextAnalyzer(setting);
-        Toast.makeText(this, "Language CURRENTLY: " + LanguageSelectedFrom, Toast.LENGTH_SHORT).show();
-
         if (this.mLensEngine != null) {
             try {
                 this.mPreview.start(this.mLensEngine);
