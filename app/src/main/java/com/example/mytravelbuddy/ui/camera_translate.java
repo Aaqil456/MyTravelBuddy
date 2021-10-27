@@ -76,7 +76,7 @@ public class camera_translate extends AppCompatActivity {
 
 
         btnlanguagefrom=findViewById(R.id.btnlanguagefrom);
-
+        btnlanguagefrom.setText(listItems[0]);
 
         pause.setOnClickListener(new View.OnClickListener() {
             @Override
