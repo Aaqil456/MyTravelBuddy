@@ -64,7 +64,7 @@ public class HomeFragment extends Fragment {
     ConstraintLayout weather_container,Appheader;
     private Button translate;
     Spinner spinner_languagefrom,spinner_languageto,spinner_languagephoto;
-    ImageButton btn_weather,btn_speech,btn_speech2,btn_upload;
+    ImageButton btn_weather,btn_speech,btn_speech2;
     ImageView img_weather;
     public String language="en",languages2="en",languagesphoto="en",weatherclick="Closed";
     int weatherstatus=0,languagesFrom=0,languagesTo=0,languagesPhoto=0,SELECT_PICTURE = 200;
@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment {
     String[]weatherInfoStr;
     SimpleDateFormat simpleDateFormat;
     ImageView IVPreviewImage;
-    String currentTime="pm";
+    int currentTime;
     private static final String TAG = HomeFragment.class.getSimpleName();
 
 
@@ -386,7 +386,7 @@ public class HomeFragment extends Fragment {
                             //Check Weather Status
                             simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"+"\n"+"HH:mm:ss aaa z", Locale.getDefault());
                             tv_date.setText(simpleDateFormat.format(new Date()));
-                            currentTime = new SimpleDateFormat("a", Locale.getDefault()).format(new Date());
+                            currentTime = Integer.parseInt(new SimpleDateFormat("HH", Locale.getDefault()).format(new Date()));
                             weatherstatus=situation.getWeatherId();
 
 
@@ -426,30 +426,29 @@ public class HomeFragment extends Fragment {
 
     }
 
-    public void updateAppBar(int weatherstatus,String currentTimes){
+    public void updateAppBar(int weatherstatus,int currentTimes){
 
            //Sunny
            if (weatherstatus >= 0 || weatherstatus <= 5) {
 //               Appheader.setBackgroundResource(R.drawable.gradient_sunny);
 //               tv_weatherstatus.setText("Sunny");
 //               img_weather.setBackgroundResource(ic_sun);
-               Toast.makeText(getContext(), currentTimes, Toast.LENGTH_LONG).show();
 
-               switch (currentTimes){
-                   case "am":
+
+
+                   if(currentTimes >= 6 || currentTimes <= 19){
                        Appheader.setBackgroundResource(R.drawable.gradient_sunny);
                        tv_weatherstatus.setText("Sunny");
                        img_weather.setBackgroundResource(ic_sun);
-                       break;
+                       }
 
-                   case "pm":
+                   else {
                        Appheader.setBackgroundResource(R.drawable.gradient_mid);
                        tv_weatherstatus.setText("Night");
                        img_weather.setBackgroundResource(ic_night);
-                       break;
-               }
+                   }
 
-           }
+               }
            //Cloudy
            else if (weatherstatus >= 5 || weatherstatus <= 13) {
                Appheader.setBackgroundResource(R.drawable.gradient_cloudy);

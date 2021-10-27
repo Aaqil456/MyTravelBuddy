@@ -52,10 +52,10 @@ public class camera_translate extends AppCompatActivity {
     private TextView tv,tvFrom,tvTo,tvcamerastatus;
     int languagesFrom,checkedItem=0;
     ImageButton pause;
-    String LanguageSelectedFrom="ko";
-    String[]listItems = {"Korean", "Traditional Chinese", "Japanese", "Malaysia", "Tamil","German","Spanish","Indonesian","Russian","Thai","Vietnamese"};
-    String[]languageselected = {"ko", "zh", "ja", "ms", "ta","de","es","id","ru","th","vi"};
-    public String LanguageFrom = "ko";
+    String LanguageSelectedFrom="en";
+    String[]listItems = {"English","Korean", "Traditional Chinese", "Japanese", "Malay", "Tamil","German","Spanish","Indonesian","Russian","Thai","Vietnamese"};
+    String[]languageselected = {"en","ko", "zh", "ja", "ms", "ta","de","es","id","ru","th","vi"};
+    public String LanguageFrom = "en";
     public String Status="pause";
     List<String> list = new ArrayList<String>();
     Button btnlanguagefrom;
@@ -86,7 +86,7 @@ public class camera_translate extends AppCompatActivity {
                     case "pause":
                         onPause();
                         pause.setImageResource(R.drawable.ic_baseline_pause_circle_24);
-                        Toast.makeText(camera_translate.this, "The Preview Is Play ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(camera_translate.this, "The Preview Is Pause ", Toast.LENGTH_SHORT).show();
                         tvcamerastatus.setText("The Camera Is Pause");
                         Status="play";
 
@@ -94,7 +94,7 @@ public class camera_translate extends AppCompatActivity {
                     case "play":
                         startLensEngine();
                         pause.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
-                        Toast.makeText(camera_translate.this, "The Preview Is Pause ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(camera_translate.this, "The Preview Is Play ", Toast.LENGTH_SHORT).show();
                         tvcamerastatus.setText("The Camera Is Play");
                         Status="pause";
 
@@ -108,7 +108,7 @@ public class camera_translate extends AppCompatActivity {
             public void onClick(View view) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(camera_translate.this);
-                builder.setTitle("Choose Language");
+                builder.setTitle("Pick a Language");
 
                 //this will checked the item when user open the dialog
                 builder.setSingleChoiceItems(listItems, checkedItem, new DialogInterface.OnClickListener() {
@@ -116,7 +116,7 @@ public class camera_translate extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 //                        Toast.makeText(root.getContext(), "Position: " + which + " Value: " + listItems[which], Toast.LENGTH_LONG).show();
                         LanguageSelectedFrom=languageselected[which];
-                        Toast.makeText(camera_translate.this, "Language From: " + LanguageSelectedFrom, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(camera_translate.this, "Language From: " + LanguageSelectedFrom, Toast.LENGTH_SHORT).show();
                         startLensEngine();
                         checkedItem = which;
                         LanguageFrom = listItems[which];
@@ -144,7 +144,7 @@ public class camera_translate extends AppCompatActivity {
         mLensEngine = new LensEngine.Creator(context, this.analyzer)
                 .setLensType(this.lensType)
                 .applyDisplayDimension(1600, 1024)
-                .applyFps(25.0f)
+                .applyFps(60.0f)
                 .enableAutomaticFocus(true)
                 .create();
     }
