@@ -1,0 +1,143 @@
+Index: app/src/main/java/com/example/mytravelbuddy/ui/Map_Activity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.mytravelbuddy.ui;\r\n\r\nimport android.Manifest;\r\nimport android.content.pm.PackageManager;\r\nimport android.os.Build;\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\n\r\nimport androidx.annotation.Nullable;\r\nimport androidx.annotation.RequiresPermission;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.core.app.ActivityCompat;\r\n\r\nimport com.example.mytravelbuddy.R;\r\nimport com.huawei.hms.maps.HuaweiMap;\r\nimport com.huawei.hms.maps.HuaweiMapOptions;\r\nimport com.huawei.hms.maps.MapView;\r\nimport com.huawei.hms.maps.MapsInitializer;\r\nimport com.huawei.hms.maps.OnMapReadyCallback;\r\nimport com.huawei.hms.maps.model.Marker;\r\n\r\nimport static android.Manifest.permission.ACCESS_FINE_LOCATION;\r\nimport static android.Manifest.permission.ACCESS_WIFI_STATE;\r\nimport static android.content.ContentValues.TAG;\r\n\r\npublic class Map_Activity extends AppCompatActivity implements OnMapReadyCallback {\r\n    private MapView mMapView;\r\n    HuaweiMap hMap;\r\n    private Marker mMarker;\r\n\r\n    @Override\r\n    protected void onCreate(@Nullable Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        MapsInitializer.setApiKey(\"CwEAAAAA87ygm62CxaYAnCnmLDj8LNdgxZ9Gt+/zTKg5oQDMsbJtWX/zNvzvhQN6gyEZKOWnoEQnrVwrDpT57bq0EZelxL3A9BE=\");\r\n\r\n        setContentView(R.layout.map_view);\r\n        // If the API level is 23 or higher (Android 6.0 or later), you need to dynamically apply for permissions.\r\n        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {\r\n            Log.i(TAG, \"sdk >= 23 M\");\r\n            // Check whether your app has the specified permission and whether the app operation corresponding to the permission is allowed.\r\n            if (ActivityCompat.checkSelfPermission(this,\r\n                    ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED\r\n                    || ActivityCompat.checkSelfPermission(this,\r\n                    Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {\r\n                // Request permissions for your app.\r\n                String[] strings =\r\n                        {ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};\r\n                // Request permissions.\r\n                ActivityCompat.requestPermissions(this, strings, 1);\r\n            }\r\n        }\r\n\r\n        mMapView = findViewById(R.id.mapview_mapviewdemo);\r\n        Bundle mapViewBundle = null;\r\n        if (savedInstanceState != null) {\r\n            mapViewBundle = savedInstanceState.getBundle(\"MapViewBundleKey\");\r\n        }\r\n        mMapView.onCreate(mapViewBundle);\r\n        mMapView.getMapAsync(this);\r\n        HuaweiMapOptions huaweiMapOptions = new HuaweiMapOptions();\r\n        huaweiMapOptions.liteMode(true);\r\n\r\n    }\r\n\r\n\r\n\r\n\r\n    //get location\r\n    @RequiresPermission(allOf = {ACCESS_FINE_LOCATION, ACCESS_WIFI_STATE})\r\n    @Override\r\n    public void onMapReady(HuaweiMap map){\r\n         hMap = map;\r\n\r\n\r\n        // Enable the my-location layer.\r\n        hMap.setMyLocationEnabled(true);\r\n        // Enable the my-location icon.\r\n        hMap.getUiSettings().setMyLocationButtonEnabled(true);\r\n        //allow compass\r\n        hMap.getUiSettings().setCompassEnabled(true);\r\n\r\n\r\n    }\r\n\r\n    private static final String MAPVIEW_BUNDLE_KEY = \"MapViewBundleKey\";\r\n\r\n    @Override\r\n    public void onSaveInstanceState(Bundle outState) {\r\n        super.onSaveInstanceState(outState);\r\n\r\n        Bundle mapViewBundle = outState.getBundle(MAPVIEW_BUNDLE_KEY);\r\n        if (mapViewBundle == null) {\r\n            mapViewBundle = new Bundle();\r\n            outState.putBundle(MAPVIEW_BUNDLE_KEY, mapViewBundle);\r\n        }\r\n\r\n        mMapView.onSaveInstanceState(mapViewBundle);\r\n    }\r\n\r\n    @Override\r\n    protected void onStart() {\r\n        super.onStart();\r\n        mMapView.onStart();\r\n    }\r\n\r\n    @Override\r\n    protected void onResume() {\r\n        super.onResume();\r\n        mMapView.onResume();\r\n    }\r\n\r\n    @Override\r\n    protected void onPause() {\r\n        super.onPause();\r\n        mMapView.onPause();\r\n    }\r\n\r\n    @Override\r\n    protected void onStop() {\r\n        super.onStop();\r\n        mMapView.onStop();\r\n    }\r\n\r\n    @Override\r\n    protected void onDestroy() {\r\n        super.onDestroy();\r\n        mMapView.onDestroy();\r\n    }\r\n\r\n    @Override\r\n    public void onLowMemory() {\r\n        super.onLowMemory();\r\n        mMapView.onLowMemory();\r\n    }\r\n\r\n    @Override\r\n    public void onPointerCaptureChanged(boolean hasCapture) {\r\n\r\n    }\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/mytravelbuddy/ui/Map_Activity.java b/app/src/main/java/com/example/mytravelbuddy/ui/Map_Activity.java
+--- a/app/src/main/java/com/example/mytravelbuddy/ui/Map_Activity.java	
++++ b/app/src/main/java/com/example/mytravelbuddy/ui/Map_Activity.java	
+@@ -12,12 +12,17 @@
+ import androidx.core.app.ActivityCompat;
+ 
+ import com.example.mytravelbuddy.R;
++import com.example.mytravelbuddy.RequestLocationUpdatesWithCallbackActivity;
+ import com.huawei.hms.maps.HuaweiMap;
+ import com.huawei.hms.maps.HuaweiMapOptions;
+ import com.huawei.hms.maps.MapView;
+ import com.huawei.hms.maps.MapsInitializer;
+ import com.huawei.hms.maps.OnMapReadyCallback;
++import com.huawei.hms.maps.model.BitmapDescriptorFactory;
++import com.huawei.hms.maps.model.Circle;
++import com.huawei.hms.maps.model.LatLng;
+ import com.huawei.hms.maps.model.Marker;
++import com.huawei.hms.maps.model.MarkerOptions;
+ 
+ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+ import static android.Manifest.permission.ACCESS_WIFI_STATE;
+@@ -26,7 +31,10 @@
+ public class Map_Activity extends AppCompatActivity implements OnMapReadyCallback {
+     private MapView mMapView;
+     HuaweiMap hMap;
++    private static final LatLng lat=new LatLng(31.294,32.678);
+     private Marker mMarker;
++    private Circle mCircle;
++    private Double Latitude,Longitude;
+ 
+     @Override
+     protected void onCreate(@Nullable Bundle savedInstanceState) {
+@@ -71,6 +79,7 @@
+     public void onMapReady(HuaweiMap map){
+          hMap = map;
+ 
++        RequestLocationUpdatesWithCallbackActivity requestLocation=new RequestLocationUpdatesWithCallbackActivity();
+ 
+         // Enable the my-location layer.
+         hMap.setMyLocationEnabled(true);
+@@ -80,7 +89,16 @@
+         hMap.getUiSettings().setCompassEnabled(true);
+ 
+ 
++            MarkerOptions options = new MarkerOptions()
++                    .position(new LatLng(requestLocation.getLat(), requestLocation.getLong()))
++                    .title("Hello Huawei Map")
++                    .snippet("This is a snippet!")
++                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_baseline_arrow_circle_up_24));
++            mMarker = hMap.addMarker(options);
++
++
+     }
++
+ 
+     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
+ 
+@@ -97,6 +115,9 @@
+         mMapView.onSaveInstanceState(mapViewBundle);
+     }
+ 
++
++
++
+     @Override
+     protected void onStart() {
+         super.onStart();
+Index: app/src/main/java/com/example/mytravelbuddy/ui/map/Map_search.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.mytravelbuddy.ui.map;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.TextView;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport com.example.mytravelbuddy.R;\r\nimport com.example.mytravelbuddy.databinding.FragmentMapsearchBinding;\r\nimport com.example.mytravelbuddy.ui.Map_Activity;\r\n\r\npublic class Map_search extends Fragment {\r\n\r\n    private FragmentMapsearchBinding binding;\r\n\r\n    public View onCreateView(@NonNull LayoutInflater inflater,\r\n                             ViewGroup container, Bundle savedInstanceState) {\r\n        binding = FragmentMapsearchBinding.inflate(inflater, container, false);\r\n        View root = binding.getRoot();\r\n        TextView tv=root.findViewById(R.id.text_notifications);\r\n        tv.setText(\"Map Fragments\");\r\n\r\n        startActivity(new Intent(getActivity(), Map_Activity.class));\r\n        return root;\r\n    }\r\n\r\n    @Override\r\n    public void onDestroyView() {\r\n        super.onDestroyView();\r\n        binding = null;\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/mytravelbuddy/ui/map/Map_search.java b/app/src/main/java/com/example/mytravelbuddy/ui/map/Map_search.java
+--- a/app/src/main/java/com/example/mytravelbuddy/ui/map/Map_search.java	
++++ b/app/src/main/java/com/example/mytravelbuddy/ui/map/Map_search.java	
+@@ -11,8 +11,8 @@
+ import androidx.fragment.app.Fragment;
+ 
+ import com.example.mytravelbuddy.R;
++import com.example.mytravelbuddy.RequestLocationUpdatesWithCallbackActivity;
+ import com.example.mytravelbuddy.databinding.FragmentMapsearchBinding;
+-import com.example.mytravelbuddy.ui.Map_Activity;
+ 
+ public class Map_search extends Fragment {
+ 
+@@ -25,7 +25,7 @@
+         TextView tv=root.findViewById(R.id.text_notifications);
+         tv.setText("Map Fragments");
+ 
+-        startActivity(new Intent(getActivity(), Map_Activity.class));
++        startActivity(new Intent(getActivity(), RequestLocationUpdatesWithCallbackActivity.class));
+         return root;
+     }
+ 
+Index: .idea/.name
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.name b/.idea/.name
+new file mode 100644
+--- /dev/null	
++++ b/.idea/.name	
+@@ -0,0 +1,1 @@
++MyTravelBuddy
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nbuildscript {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n        maven { url 'https://developer.huawei.com/repo/' }\r\n    }\r\n    dependencies {\r\n        classpath 'com.android.tools.build:gradle:7.0.2'\r\n        classpath 'com.huawei.agconnect:agcp:1.5.2.300'\r\n        // NOTE: Do not place your application dependencies here; they belong\r\n        // in the individual module build.gradle files\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        maven {url 'https://developer.huawei.com/repo/'}\r\n        google()\r\n        jcenter()\r\n    }\r\n}\r\n\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	
++++ b/build.gradle	
+@@ -7,9 +7,9 @@
+     }
+     dependencies {
+         classpath 'com.android.tools.build:gradle:7.0.2'
+-        classpath 'com.huawei.agconnect:agcp:1.5.2.300'
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
++        classpath 'com.huawei.agconnect:agcp:1.6.0.300'
+     }
+ }
+ 
+@@ -23,4 +23,4 @@
+ 
+ task clean(type: Delete) {
+     delete rootProject.buildDir
+-}
+\ No newline at end of file
++}
