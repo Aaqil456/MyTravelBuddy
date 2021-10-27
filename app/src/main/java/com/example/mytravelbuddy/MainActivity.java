@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int LOCATION_PERMISSION_CODE = 101;
     private static final int LOCATION_COURSE_CODE = 102;
     private static final int WIFI_PERMISSION_CODE = 103;
-    private static final int SELECT_PICTURE = 200;
     private static final String TAG = "MyActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,14 +177,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "Wifi Permission Denied", Toast.LENGTH_SHORT).show();
                 }
             }
-//            else if (requestCode == SELECT_PICTURE) {
-//                if (grantResults.length > 0
-//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    Toast.makeText(this, "Gallery Permission Granted", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(this, "Gallery Permission Denied", Toast.LENGTH_SHORT).show();
-//                }
-//            }
         }
 
     }
