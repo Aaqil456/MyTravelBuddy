@@ -53,8 +53,8 @@ public class camera_translate extends AppCompatActivity {
     int checkedItem=0;
     ImageButton pause;
     String LanguageSelectedFrom="ko";
-    String[]listItems = {"English","Korean", "Traditional Chinese", "Japanese", "Malay", "Tamil","German","Spanish","Indonesian","Russian","Thai","Vietnamese"};
-    String[]languageselected = {"en","ko", "zh", "ja", "ms", "ta","de","es","id","ru","th","vi"};
+    String[]listItems = {"Korean","English", "Traditional Chinese", "Japanese", "Malay", "Tamil","German","Spanish","Indonesian","Russian","Thai","Vietnamese"};
+    String[]languageselected = {"ko","en", "zh", "ja", "ms", "ta","de","es","id","ru","th","vi"};
     public String Status="pause";
     List<String> list = new ArrayList<String>();
     Button btnlanguagefrom;
